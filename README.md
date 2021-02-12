@@ -1,24 +1,17 @@
-# README
+# BALCÃO DE EMPREGOS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Descrição
 
-Things you may want to cover:
+> Plataforma de divulgação de vagas de emprego em tecnologia. **Em construção.** 
 
-* Ruby version
+---
 
-* System dependencies
+Realizado como projeto final do TreinaDev, consiste na criação de uma plataforma Web que permite que recrutadores de empresas de tecnologia divulguem vagas de empregos e gerenciem o processo de contratação. Além disso, a plataforma funcionará como um site de busca de
+oportunidades para os visitantes. Um visitante pode conhecer empresas, ver suas vagas
+disponíveis e aplicar para estas vagas.
 
-* Configuration
+Mais detalhes sobre o processo [aqui](https://www.notion.so/Projeto-2-Balc-o-de-Empregos-4dbe791ce3224d80bb1bf56ca07e23a0).
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
