@@ -7,7 +7,7 @@
 
 ## Descrição
 
-> ## Plataforma de divulgação de vagas de emprego em tecnologia.  
+> Plataforma de divulgação de vagas de emprego em tecnologia.  
 
 ---
 
