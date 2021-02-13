@@ -5,6 +5,6 @@ feature 'Visitor visits home page' do
         visit root_path
 
         expect(page).to have_content('Tech Jobs')
-        expect(page).to have_content('Encontre vagas de trabalho em tecnologia')
+        expect(page).to have_content('Encontre vagas de trabalho em tecnologia!')
     end
 end
