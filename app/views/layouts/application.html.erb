@@ -12,7 +12,33 @@
   </head>
 
   <body>
+    <nav>
+      <ul class="nav justify-content-end">
+        <% if recruiter_signed_in? %>
+          <li class="nav-item">
+            <%= current_recruiter.email %>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link active">
+              <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item"> 
+            <%= link_to 'Entrar', new_recruiter_session_path %> 
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Cadastre-se', new_recruiter_registration_path %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+
     <%= yield %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   </body>
 </html>

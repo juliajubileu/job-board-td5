@@ -10,15 +10,12 @@ feature 'Recruiter signs up' do
     scenario 'successfully' do
         visit root_url
         click_on 'Cadastre-se'
-        within('form') do
-            fill_in 'E-mail', with: 'rh@treinadev.com.br'
-            fill_in 'Senha', with: 'tr4b4lh0'
-            fill_in 'Confirme a senha', with: 'tr4b4lh0'
-            click_on 'Cadastrar'
-        end
+        fill_in 'E-mail', with: 'rh@treinadev.com.br'
+        fill_in 'Senha', with: 'tr4b4lh0'
+        fill_in 'Confirme a senha', with: 'tr4b4lh0'
+        click_on 'Cadastrar'
 
         expect(page).to have_content('rh@treinadev.com.br')
-        expect(page).to have_content('Painel do recrutador')
         expect(page).to have_link('Sair')
         expect(page).not_to have_link('Cadastre-se')
     end
@@ -33,10 +30,10 @@ feature 'Recruiter signs up' do
             click_on 'Cadastrar'
         end
 
+        expect(page).to have_content('Não foi possível salvar recrutador')
         expect(page).to have_content('não pode ficar em branco')
         expect(page).to have_link('Cadastre-se')
         expect(page).not_to have_content('rh@treinadev.com.br')
-        expect(page).not_to have_content('Painel do Recrutador')
         expect(page).not_to have_link('Sair')
     end
 
@@ -50,10 +47,9 @@ feature 'Recruiter signs up' do
             click_on 'Cadastrar'
         end
 
-        expect(page).to have_content('não é igual a senha')
-        expect(page).to have_link('Cadastrar')
+        expect(page).to have_content('Não foi possível salvar recrutador')
+        expect(page).to have_content('Confirmação de senha não é igual a Senha')
         expect(page).not_to have_content('rh@treinadev.com.br')
-        expect(page).not_to have_content('Painel do Recrutador')
         expect(page).not_to have_link('Sair')
     end
 
@@ -66,10 +62,10 @@ feature 'Recruiter signs up' do
             fill_in 'Confirme a senha', with: 'tr4b4lh0'
             click_on 'Cadastrar'
         end
-
-        expect(page).to have_content('não é válido')
-        expect(page).to have_link('Cadastrar')
-        expect(page).not_to have_content('Painel do Recrutador')
+        
+        expect(page).to have_content('Não foi possível salvar recrutador')
+        expect(page).to have_content('E-mail não é válido')
+        expect(page).not_to have_content('rh@treinadev.com.br')
         expect(page).not_to have_link('Sair')
     end
 
@@ -85,9 +81,9 @@ feature 'Recruiter signs up' do
             click_on 'Cadastrar'
         end
 
+        expect(page).to have_content('Não foi possível salvar recrutador')
         expect(page).to have_content('já está em uso')
-        expect(page).to have_link('Cadastrar')
-        expect(page).not_to have_content('Painel do Recrutador')
+        expect(page).not_to have_content('rh@treinadev.com.br')
         expect(page).not_to have_link('Sair')
     end
 
@@ -101,9 +97,9 @@ feature 'Recruiter signs up' do
             click_on 'Cadastrar'
         end
 
-        expect(page).to have_content('não é e-mail corporativo')
-        expect(page).to have_link('Cadastrar')
-        expect(page).not_to have_content('Painel do Recrutador')
+        expect(page).to have_content('Não foi possível salvar recrutador')
+        expect(page).to have_content('Não é e-mail corporativo')
+        expect(page).not_to have_content('julia@gmail.com')
         expect(page).not_to have_link('Sair')
     end
 end
