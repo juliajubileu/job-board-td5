@@ -1,11 +1,11 @@
 class Recruiter < ApplicationRecord
-  PERSONAL_DOMAINS = ['gmail.com']
+  PERSONAL_DOMAINS = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com',
+                     'uol.com.br', 'ig.com.br']
+  #TODO carregar de um arquivo com a lista completa de dominios
 
   validates :email, presence: true
   validate :email_cant_be_personal
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
