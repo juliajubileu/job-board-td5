@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Recruiter edits company job openings' do
     background do
       company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
-                                cnpj: 11222333000044, website: 'campuscode.com.br',
+                                cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
                                 social: 'twitter.com/campuscode')
       recruiter = Recruiter.create!(email: 'dev@campuscode.com.br', password: '654321')
       job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de 
@@ -45,7 +45,7 @@ feature 'Recruiter edits company job openings' do
 
     scenario 'And can not be a job from another company' do
         other_company = Company.create!(name: 'TreinaDev', address: 'Alameda Santos, 1293',
-        cnpj: 11555333000094, website: 'treinadev.com.br',
+        cnpj: '11.555.333/0000-94', website: 'treinadev.com.br',
         social: 'twitter.com/treinadev')
         job = Job.create!(title: 'Tech Lead', description: 'Liderança', pay: 5000, 
                          level: 'Sênior', prerequisite: 'Anos de experiência',

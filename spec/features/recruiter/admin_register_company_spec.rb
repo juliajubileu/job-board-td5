@@ -1,12 +1,20 @@
 require 'rails_helper'
 
 feature 'Recruiter registers company info' do
-    background do
-        first_recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
-        second_recruiter = Recruiter.create!(email: 'dev@campuscode.com.br', password: '654321')
+    scenario 'from home page' do
+        visit root_url
+        click_on 'Cadastre-se'
+        fill_in 'E-mail', with: 'rh@treinadev.com.br'
+        fill_in 'Senha', with: 'tr4b4lh0'
+        fill_in 'Confirme a senha', with: 'tr4b4lh0'
+        click_on 'Cadastrar'
+
+        expect(current_path).to eq(new_company_path)
     end
 
-    scenario 'successfully' do 
+    scenario 'successfully' do
+        first_recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
+
         login_as first_recruiter, scope: :recruiter
         click_on 'Inserir dados da empresa'
         within('form') do 
@@ -25,6 +33,8 @@ feature 'Recruiter registers company info' do
     end
 
     scenario 'and must fill all required fields' do
+        first_recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
+
         login_as first_recruiter, scope: :recruiter
         click_on 'Inserir dados da empresa'
         within('form') do 
@@ -48,6 +58,7 @@ feature 'Recruiter registers company info' do
         company = Company.create!(name: 'Campus Code', address: 'Alameda Anjos, 1345',
                                  cnpj: 11222333000044, website: 'campuscode.com',
         social: 'twitter.com/campuscode')
+        first_recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
 
         login_as first_recruiter, scope: :recruiter
         click_on 'Inserir dados da empresa'
@@ -67,8 +78,11 @@ feature 'Recruiter registers company info' do
     end
 
     scenario 'and next recruiters will automatically join the company' do
+        first_recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
+        second_recruiter = Recruiter.create!(email: 'dev@campuscode.com.br', password: '654321')
+
         company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
-                                  cnpj: 11222333000044, website: 'campuscode.com.br',
+                                  cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
                                   social: 'twitter.com/campuscode', admin: first_recruiter)
         
         login_as second_recruiter, scope: :recruiter

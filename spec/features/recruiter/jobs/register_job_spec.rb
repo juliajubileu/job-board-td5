@@ -4,7 +4,7 @@ feature 'Recruiter register a job opening' do
     background do
         recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
         company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
-        cnpj: 11222333000044, website: 'campuscode.com.br',
+        cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
         social: 'twitter.com/campuscode', admin: recruiter)
 
         login_as recruiter, scope: :recruiter
@@ -27,7 +27,7 @@ feature 'Recruiter register a job opening' do
                                              testes e documentação de APIs REST; Vivência em 
                                              metodologias ágeis'
 
-            fill_in 'Data limite', with: 25/05/2021
+            fill_in 'Data limite', with: '25/05/2021'
             fill_in 'Vagas disponíveis', with: 3
             click_on 'Salvar'
         end
@@ -82,7 +82,7 @@ feature 'Recruiter register a job opening' do
                                              testes e documentação de APIs REST; Vivência em 
                                              metodologias ágeis'
 
-            fill_in 'Data limite', with: 25/05/2021
+            fill_in 'Data limite', with: '25/05/2021'
             fill_in 'Vagas disponíveis', with: 3
             click_on 'Salvar'
         end
@@ -110,7 +110,7 @@ feature 'Recruiter register a job opening' do
                                              testes e documentação de APIs REST; Vivência em 
                                              metodologias ágeis'
 
-            fill_in 'Data limite', with: 25/01/2021
+            fill_in 'Data limite', with: '25/01/2021'
             fill_in 'Vagas disponíveis', with: 3
             click_on 'Salvar'
         end
@@ -138,7 +138,7 @@ feature 'Recruiter register a job opening' do
                                              testes e documentação de APIs REST; Vivência em 
                                              metodologias ágeis'
 
-            fill_in 'Data limite', with: 25/05/2021
+            fill_in 'Data limite', with: '25/05/2021'
             fill_in 'Vagas disponíveis', with: 0.3
             click_on 'Salvar'
         end
