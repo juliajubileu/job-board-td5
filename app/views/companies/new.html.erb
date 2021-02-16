@@ -1,2 +1,24 @@
 <h1>Cadastro de empresa</h1>
+<%= link_to 'Voltar', root_path %>
 
+<%= form_with model: @company do |form| %>
+    <%= form.label :name, "Nome" %>
+    <%= form.text_field :name %>
+    
+    <%= form.label :address, "Endereço" %>
+    <%= form.text_field :address %>
+
+    <%= form.label :cnpj, "CNPJ" %>
+    <%= form.text_field :cnpj %>
+
+    <%= form.label :website, "Site" %>
+    <%= form.text_field :website %>
+
+    <%= form.label :domain, "Domínio de e-mail" %>
+    <%= form.text_field :domain %>
+
+    <%= form.label :logo, "Logo" %>
+    <%= form.file_field :logo %>
+
+    <%= form.submit "Salvar" %>
+  <% end %>

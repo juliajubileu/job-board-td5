@@ -1,21 +1,20 @@
 class CompaniesController < ApplicationController
-    def show
+    def index
         @company = Company.all
     end
 
-    def index
+    def show
         @company = Company.find(params[:id])
     end
 
-    # Relacionar com primeiro recrutador
     def new
         @company = Company.new
     end
 
     def create
-        @company = Company.new
+        @company = Company.new(company_params)
         if @company.save 
-            redirect to @company
+            redirect_to @company
         else
             render 'new'
         end
@@ -24,6 +23,6 @@ class CompaniesController < ApplicationController
     private 
     
     def company_params
-        param.require(:company).permit(:name, :address, :cnpj, :domain, :website)
+        params.require(:company).permit(:name, :address, :cnpj, :domain, :website, :logo)
     end
 end 
