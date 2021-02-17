@@ -15,7 +15,7 @@ Realizado como projeto final do [TreinaDev](https://www.treinadev.com.br/home), 
 ## Funcionalidades
 
 - [x] Colaborador cria conta usando e-mail da empresa
-- [ ] Colaborador preenche dados da empresa, caso seja a primeira pessoa da empresa a se cadastrar
+- [x] Colaborador preenche dados da empresa, caso seja a primeira pessoa da empresa a se cadastrar
 - [ ] Colaborador cadastra uma nova vaga de emprego
 - [ ] Visitante navega pelo site e vê as empresas cadastradas
 - [ ] Visitante decide se inscrever para uma vaga
