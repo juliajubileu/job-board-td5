@@ -2,8 +2,11 @@ pt-BR:
   activerecord:
     models:
       recruiter:
-        one: Recrutador
-        other: Recrutadores
+        one: 'Recrutador'
+        other: 'Recrutadores'
+      company:
+        one: 'Empresa'
+        other: 'Empresas'
     attributes:
       recruiter:
         current_password: 'Senha atual'
@@ -11,3 +14,9 @@ pt-BR:
         password: 'Senha'
         password_confirmation: 'Confirmação de senha'
         remember_me: 'Lembrar de mim'
+      company:
+        name: 'Nome'
+        address: 'Endereço'
+        cnpj: 'CNPJ'
+        domain: 'Domínio de e-mail'
+        website: 'Site'

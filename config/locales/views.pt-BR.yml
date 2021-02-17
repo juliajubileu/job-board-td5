@@ -5,3 +5,8 @@ pt-BR:
         email: 'E-mail'
         password: 'Senha'
         password_confirmation: 'Confirme a senha'
+  
+  companies:
+    new:
+      name: 'Nome'
+      cnpj: 'CNPJ'
