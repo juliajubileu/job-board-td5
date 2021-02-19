@@ -24,7 +24,7 @@ feature 'Recruiter registers company info' do
             fill_in 'Endereço', with: 'Alameda Santos, 1293'
             fill_in 'CNPJ', with: '11.222.333/0000-44'
             fill_in 'Site', with: 'www.campuscode.com.br'
-            fill_in 'Domínio de e-mail dos funcionários', with: 'www.campuscode.com.br'
+            #fill_in 'Domínio de e-mail dos funcionários', with: 'www.campuscode.com.br'
             attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
             click_on 'Salvar'
         end
@@ -46,7 +46,7 @@ feature 'Recruiter registers company info' do
             fill_in 'Endereço', with: ''
             fill_in 'CNPJ', with: ''
             fill_in 'Site', with: ''
-            fill_in 'Domínio de e-mail dos funcionários', with: ''
+            #fill_in 'Domínio de e-mail dos funcionários', with: ''
             attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
             click_on 'Salvar'
         end
@@ -76,7 +76,6 @@ feature 'Recruiter registers company info' do
           fill_in 'Endereço', with: 'Alameda Santos, 1293'
           fill_in 'CNPJ', with: '11.222.333/0000-44'
           fill_in 'Site', with: 'www.campuscode.com.br'
-          fill_in 'Domínio de e-mail dos funcionários', with: 'campuscode.com.br'
           attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
           click_on 'Salvar'
         end

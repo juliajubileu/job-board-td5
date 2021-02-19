@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
 
     def create
         @company = Company.new(company_params)
+        @company.recruiter = current_recruiter
         if @company.save 
             redirect_to @company
         else
