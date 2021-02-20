@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  devise_for :recruiters, controllers: { registrations: "registrations" }
+  devise_for :recruiters, controllers: { registrations: 'recruiter/registrations' }
 
   resources :companies
 end

@@ -3,30 +3,42 @@ require 'rails_helper'
 feature 'Recruiter registers company info' do
     scenario 'from home page' do
         visit root_url
-        click_on 'Cadastre-se'
-        fill_in 'E-mail', with: 'rh@campuscode.com.br'
-        fill_in 'Senha', with: 'tr4b4lh0'
-        fill_in 'Confirme a senha', with: 'tr4b4lh0'
-        click_on 'Cadastrar'
+        click_on 'Acesso recrutadores'
+        click_on 'Registre-se'
+        within('form') do
+          fill_in 'E-mail', with: 'rh@campuscode.com.br'
+          fill_in 'Senha', with: 'tr4b4lh0'
+          fill_in 'Confirme a senha', with: 'tr4b4lh0'
+          click_on 'Salvar'
+        end
 
         expect(current_path).to eq(new_company_path)
     end
 
     scenario 'successfully' do
         visit root_url
-        click_on 'Cadastre-se'
-        fill_in 'E-mail', with: 'rh@campuscode.com.br'
-        fill_in 'Senha', with: 'tr4b4lh0'
-        fill_in 'Confirme a senha', with: 'tr4b4lh0'
-        click_on 'Cadastrar'
+        click_on 'Acesso recrutadores'
+        click_on 'Registre-se'
+        within('form') do
+          fill_in 'E-mail', with: 'rh@campuscode.com.br'
+          fill_in 'Senha', with: 'tr4b4lh0'
+          fill_in 'Confirme a senha', with: 'tr4b4lh0'
+          click_on 'Salvar'
+        end
         within('form') do 
-            fill_in 'Nome', with: 'Campus Code'
-            fill_in 'Endereço', with: 'Alameda Santos, 1293'
-            fill_in 'CNPJ', with: '11.222.333/0000-44'
-            fill_in 'Site', with: 'www.campuscode.com.br'
-            #fill_in 'Domínio de e-mail dos funcionários', with: 'www.campuscode.com.br'
-            attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
-            click_on 'Salvar'
+          fill_in 'Nome', with: 'Campus Code'
+          fill_in 'Endereço', with: 'Alameda Santos, 1293'
+          fill_in 'CNPJ', with: '11.222.333/0000-44'
+          fill_in 'Site', with: 'www.campuscode.com.br'
+          fill_in 'Domínio de e-mail dos funcionários', with: 'campuscode.com.br'
+          attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
+          click_on 'Salvar'
+        end
+        within('form') do
+          fill_in 'E-mail', with: 'rh@campuscode.com.br'
+          fill_in 'Senha', with: 'tr4b4lh0'
+          fill_in 'Confirme a senha', with: 'tr4b4lh0'
+          click_on 'Salvar'
         end
 
         expect(page).to have_content('Painel do recrutador - Campus Code')
@@ -36,17 +48,20 @@ feature 'Recruiter registers company info' do
 
     scenario 'and must fill all required fields' do
         visit root_url
-        click_on 'Cadastre-se'
-        fill_in 'E-mail', with: 'rh@campuscode.com.br'
-        fill_in 'Senha', with: 'tr4b4lh0'
-        fill_in 'Confirme a senha', with: 'tr4b4lh0'
-        click_on 'Cadastrar'
+        click_on 'Acesso recrutadores'
+        click_on 'Registre-se'
+        within('form') do
+            fill_in 'E-mail', with: 'rh@campuscode.com.br'
+            fill_in 'Senha', with: 'tr4b4lh0'
+            fill_in 'Confirme a senha', with: 'tr4b4lh0'
+            click_on 'Salvar'
+          end
         within('form') do 
             fill_in 'Nome', with: ''
             fill_in 'Endereço', with: ''
             fill_in 'CNPJ', with: ''
             fill_in 'Site', with: ''
-            #fill_in 'Domínio de e-mail dos funcionários', with: ''
+            fill_in 'Domínio de e-mail dos funcionários', with: ''
             attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
             click_on 'Salvar'
         end
@@ -66,16 +81,20 @@ feature 'Recruiter registers company info' do
 
                                  
         visit root_url
-        click_on 'Cadastre-se'
-        fill_in 'E-mail', with: 'rh@campuscode.com.br'
-        fill_in 'Senha', with: 'tr4b4lh0'
-        fill_in 'Confirme a senha', with: 'tr4b4lh0'
-        click_on 'Cadastrar'
+        click_on 'Acesso recrutadores'
+        click_on 'Registre-se'
+        within('form') do
+            fill_in 'E-mail', with: 'rh@campuscode.com.br'
+            fill_in 'Senha', with: 'tr4b4lh0'
+            fill_in 'Confirme a senha', with: 'tr4b4lh0'
+            click_on 'Salvar'
+          end
         within('form') do 
           fill_in 'Nome', with: 'Campus Code'
           fill_in 'Endereço', with: 'Alameda Santos, 1293'
           fill_in 'CNPJ', with: '11.222.333/0000-44'
           fill_in 'Site', with: 'www.campuscode.com.br'
+          fill_in 'Domínio de e-mail dos funcionários', with: ''
           attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
           click_on 'Salvar'
         end
@@ -87,17 +106,22 @@ feature 'Recruiter registers company info' do
     end
 
     scenario 'and next recruiters will automatically join the company' do
-        first_recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
         company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
                                   cnpj: '11.222.333/0000-44', website: 'www.campuscode.com.br', 
                                   domain: 'campuscode.com.br')
+        first_recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456',
+                                            company: company)
+
         
         visit root_path
-        click_on 'Cadastre-se'
-        fill_in 'E-mail', with: 'dev@campuscode.com.br'
-        fill_in 'Senha', with: 'tr4b4lh0'
-        fill_in 'Confirme a senha', with: 'tr4b4lh0'
-        click_on 'Cadastrar'
+        click_on 'Acesso recrutadores'
+        click_on 'Registre-se'
+        within('form') do
+            fill_in 'E-mail', with: 'dev@campuscode.com.br'
+            fill_in 'Senha', with: 'tr4b4lh0'
+            fill_in 'Confirme a senha', with: 'tr4b4lh0'
+            click_on 'Salvar'
+          end
 
         expect(current_path).to eq(company_path(company))
         expect(page).to have_content('Painel do recrutador - Campus Code')

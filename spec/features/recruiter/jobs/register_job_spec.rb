@@ -1,18 +1,29 @@
 require 'rails_helper'
 
 feature 'Recruiter register a job opening' do
-    background do
+    scenario 'from home page' do
         recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
         company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
         cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
-        social: 'twitter.com/campuscode', admin: recruiter)
+        domain: 'campuscode.com.br')
 
         login_as recruiter, scope: :recruiter
-    end
-
-    scenario 'successfully' do 
         visit root_url
-        click_on 'Entrar'
+        click_on recruiter.email
+
+        expect(current_path).to eq(company_path(company))
+        expect(page).to have_content('Painel do recrutador - Campus Code')
+        expect(page).to have_link('Publicar vaga')
+    end
+    scenario 'successfully' do 
+        recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
+        company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
+        cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
+        domain: 'campuscode.com.br')
+
+        login_as recruiter, scope: :recruiter
+        visit root_url
+        click_on recruiter.email
         click_on 'Publicar vaga'
         within('form') do
             fill_in 'Título', with: 'Desenvolvedor(a) Web'
@@ -41,8 +52,14 @@ feature 'Recruiter register a job opening' do
     end
 
     scenario 'and must fill all required fields' do
+        recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
+        company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
+        cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
+        domain: 'campuscode.com.br')
+
+        login_as recruiter, scope: :recruiter
         visit root_url
-        click_on 'Entrar'
+        click_on recruiter.email
         click_on 'Publicar vaga'
         within('form') do
             fill_in 'Título', with: ''
@@ -66,8 +83,14 @@ feature 'Recruiter register a job opening' do
     end
 
     scenario 'and salary must be higher than minimum wage' do
+        recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
+        company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
+        cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
+        domain: 'campuscode.com.br')
+
+        login_as recruiter, scope: :recruiter
         visit root_url
-        click_on 'Entrar'
+        click_on recruiter.email
         click_on 'Publicar vaga'
         within('form') do
             fill_in 'Título', with: 'Desenvolvedor(a) Web'
@@ -94,8 +117,14 @@ feature 'Recruiter register a job opening' do
     end
 
     scenario 'and closing date must be in the future' do
+        recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
+        company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
+        cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
+        domain: 'campuscode.com.br')
+
+        login_as recruiter, scope: :recruiter
         visit root_url
-        click_on 'Entrar'
+        click_on recruiter.email
         click_on 'Publicar vaga'
         within('form') do
             fill_in 'Título', with: 'Desenvolvedor(a) Web'
@@ -122,8 +151,14 @@ feature 'Recruiter register a job opening' do
     end
 
     scenario 'and total openings must be positive integer' do
+        recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456')
+        company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
+        cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
+        domain: 'campuscode.com.br')
+
+        login_as recruiter, scope: :recruiter
         visit root_url
-        click_on 'Entrar'
+        click_on recruiter.email
         click_on 'Publicar vaga'
         within('form') do
             fill_in 'Título', with: 'Desenvolvedor(a) Web'

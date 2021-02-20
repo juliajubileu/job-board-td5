@@ -1,9 +1,8 @@
 class Recruiter < ApplicationRecord
+  belongs_to :company
   PERSONAL_DOMAINS = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com',
                      'uol.com.br', 'ig.com.br']
   # TODO carregar de um arquivo com a lista completa de dominios
-  belongs_to :company, optional: true
-
   validates :email, presence: true
   validate :email_cant_be_personal
 

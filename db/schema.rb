@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_18_233943) do
+ActiveRecord::Schema.define(version: 2021_02_19_211701) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,8 +48,6 @@ ActiveRecord::Schema.define(version: 2021_02_18_233943) do
     t.string "website"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "recruiter_id", null: false
-    t.index ["recruiter_id"], name: "index_companies_on_recruiter_id"
   end
 
   create_table "recruiters", force: :cascade do |t|
@@ -59,11 +57,13 @@ ActiveRecord::Schema.define(version: 2021_02_18_233943) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "role"
+    t.integer "company_id", null: false
+    t.index ["company_id"], name: "index_recruiters_on_company_id"
     t.index ["email"], name: "index_recruiters_on_email", unique: true
     t.index ["reset_password_token"], name: "index_recruiters_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "companies", "recruiters"
+  add_foreign_key "recruiters", "companies"
 end
