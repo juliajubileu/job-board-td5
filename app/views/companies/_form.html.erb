@@ -1,14 +1,18 @@
 <% if @company.errors.any? %>
-  <div class="alert">
+  <% if @company.persisted? %>
+    <p>Não foi possível editar as informações da empresa</p>
+  <% else %>
     <p>Não foi possível registrar a empresa</p>
-    <p>Confira os erros abaixo:</p>
+  <% end %>
+
+  <p>Confira os erros abaixo:</p>
     <ul>
       <% @company.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
-  </div>
-<% end %>
+    
+  <% end %>
 
 <%= form_with model: @company do |form| %>
     <%= form.label :name, "Nome" %>

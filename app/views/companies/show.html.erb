@@ -1,5 +1,24 @@
-<h1> Painel do recrutador - <%= @company.name %> </h1>
+<% if current_recruiter.company == @company %>
+  <h1> Painel do recrutador - <%= @company.name %> </h1>
 
-<%= link_to 'Publicar vagas', new_job_path %>
+  <h2>Vagas publicadas</h2>
+  <% if @company.jobs.empty? %>
+    <p>Nenhuma vaga publicada</p>
+  <% else %>
+    <dl>
+      <% @company.jobs.each do |job| %>
+        <dt><%= Job.human_attribute_name(:title) %></dt>
+        <dd><%= link_to job.title, job_path(job) %></dd>
+        <dt><%= Job.human_attribute_name(:description) %></dt>
+        <dd><%= job.description %></dd>
+      <% end %>
+    </dl>
+  <% end %>
+
+  <%= link_to 'Publicar vagas', new_job_path %>
+
+<% end %>
+
 
 <%= link_to 'Voltar', root_path %>
+

@@ -1,14 +1,18 @@
 <% if @job.errors.any? %>
-  <div class="alert">
+  <% if @job.persisted? %>
+    <p>Não foi possível editar a vaga</p>
+  <% else %>
     <p>Não foi possível criar a vaga</p>
-    <p>Confira os erros abaixo:</p>
+  <% end %>
+
+  <p>Confira os erros abaixo:</p>
     <ul>
       <% @job.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
-  </div>
-<% end %>
+    
+  <% end %>
 
 <%= form_with model: @job do |form| %>
     <%= form.label :title, "Título" %>

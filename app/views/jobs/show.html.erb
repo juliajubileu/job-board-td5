@@ -26,9 +26,10 @@
   <dd><%= I18n.localize(@job.expiration_date) %></dd>
 </dl>
 
-<% if current_recruiter.company == @job.company %>
-  <%= link_to 'Editar vaga' %>
+<% if current_recruiter&.company == @job.company %>
+  <%= link_to 'Editar vaga', edit_job_path %>
   <%= link_to 'Desativar vaga' %>
   <%= link_to 'Ver candidaturas' %>
-  <%= link_to 'Voltar', company_path(current_recruiter.company) %>
 <% end %>
+
+<%= link_to 'Voltar', :back %>

@@ -1,0 +1,16 @@
+<h1>Vagas</h1>
+
+<% if @jobs.empty? %>
+  <p>Nenhuma vaga encontrada</p>
+<% else %>
+  <% @jobs.each do |job| %>
+    <dt><%= Job.human_attribute_name(:title) %></dt>
+    <dd><%= link_to job.title, job_path(job) %></dd>
+
+    <dt><%= Job.human_attribute_name(:description) %></dt>
+    <dd><%= job.description %></dd>
+
+    <dt><%= Job.human_attribute_name(:level) %></dt>
+    <dd><%= job.level %></dd>
+  <% end %>
+<% end %>

@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
     def index
-        @jobs = Job.find(all)
+        @jobs = Job.all
     end
 
     def show
@@ -20,6 +20,20 @@ class JobsController < ApplicationController
             redirect_to @job
         else
             render :new
+        end
+    end
+
+    def edit 
+        @job = Job.find(params[:id])
+      end
+    
+      def update
+        @job = Job.find(params[:id])
+        if @job.update(job_params)
+          flash[:notice] = 'Vaga editada com sucesso'
+          redirect_to @job
+        else
+          render 'edit'
         end
     end
 
