@@ -7,6 +7,9 @@ pt-BR:
       company:
         one: 'Empresa'
         other: 'Empresas'
+      job:
+        one: 'Vaga'
+        other: 'Vagas'
     attributes:
       recruiter:
         current_password: 'Senha atual'
@@ -20,3 +23,12 @@ pt-BR:
         cnpj: 'CNPJ'
         domain: 'Domínio de e-mail'
         website: 'Site'
+      job:
+        title: 'Título'
+        description: 'Descrição'
+        remuneration: 'Oferta de remuneração'
+        level: 'Nível'
+        requirements: 'Requisitos obrigatórios'
+        expiration_date: 'Data limite'
+        spots_available: 'Vagas disponíveis'
+        

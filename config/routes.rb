@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   devise_for :recruiters, controllers: { registrations: 'recruiter/registrations' }
 
-  resources :companies
+  resources :companies, :jobs
 end

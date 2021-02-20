@@ -1,6 +1,7 @@
 class Company < ApplicationRecord
     has_one_attached :logo
     has_many :recruiters
+    has_many :jobs
     
     validates :name, :address, :cnpj, :domain, :website, presence: true
     validates :name, :cnpj, :domain, uniqueness: true

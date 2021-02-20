@@ -1,0 +1,34 @@
+<% if flash[:notice] %>
+<div>
+  <p><%= flash[:notice] %></p>
+</div>
+<% end %>
+
+<h1><%= @job.title %></h1>
+
+<dl>
+  <dt><%= Job.human_attribute_name(:description) %></dt>
+  <dd><%= @job.description %></dd>
+
+  <dt><%= Job.human_attribute_name(:requirements) %></dt>
+  <dd><%= @job.requirements %></dd>
+
+  <dt><%= Job.human_attribute_name(:level) %></dt>
+  <dd><%= @job.level %></dd>
+
+  <dt><%= Job.human_attribute_name(:remuneration) %></dt>
+  <dd><%= number_to_currency(@job.remuneration) %></dd>
+
+  <dt><%= Job.human_attribute_name(:spots_available) %></dt>
+  <dd><%= @job.spots_available %></dd>
+
+  <dt><%= Job.human_attribute_name(:expiration_date) %></dt>
+  <dd><%= I18n.localize(@job.expiration_date) %></dd>
+</dl>
+
+<% if current_recruiter.company == @job.company %>
+  <%= link_to 'Editar vaga' %>
+  <%= link_to 'Desativar vaga' %>
+  <%= link_to 'Ver candidaturas' %>
+  <%= link_to 'Voltar', company_path(current_recruiter.company) %>
+<% end %>
