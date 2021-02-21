@@ -25,5 +25,63 @@ Realizado como projeto final do [TreinaDev](https://www.treinadev.com.br/home), 
 - [ ] Candidato (agora autenticado) visualiza as propostas recebidas
 - [ ] Colaborador ou candidato podem aceitar/reprovar uma candidatura
 
+## Gems utilizadas
+
+* [Devise](https://github.com/heartcombo/devise)
+* [Rspec](https://github.com/rspec/rspec-rails)
+* [Capybara](https://github.com/teamcapybara/capybara)
+* [SimpleCov](https://github.com/simplecov-ruby/simplecov)
+* [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers)
+
+## Como executar o projeto
+
+Para executar esse projeto, você deve instalar e configurar a linguagem Ruby versão 2.7.2 e o framework Rails versão 6.1.2 em seu computador. Em seguida, siga os passos abaixo: 
+
+Clone este repositório
+
+```cmd
+git clone https://github.com/JuliaJubileu/job-board-td5
+```
+
+Abra o diretório pelo terminal
+
+```bash
+cd  job-board-td5
+```
+
+Instale as gems rodando o comando Bundle install
+
+```bash
+bundle install
+```
+
+Gere o banco de dados 
+
+```bash
+rails db:create
+```
+```bash
+rails db:migrate
+```
+
+### Rodando os testes
+
+Para executar os testes, rode o seguinte comando no terminal
+
+```bash
+rspec 
+```
+
+### Rodando no navegador
+
+Para executar a aplicação em seu navegador, rode o seguinte comando no terminal
+
+```bash
+rails server
+```
+
+Em seguida abra seu navegador e digite `localhost:3000`
+
+
 ## Status
 Projeto em desenvolvimento. Mais detalhes sobre o processo [aqui](https://www.notion.so/Projeto-2-Balc-o-de-Empregos-4dbe791ce3224d80bb1bf56ca07e23a0)! :blush:	
