@@ -37,6 +37,19 @@ class JobsController < ApplicationController
         end
     end
 
+    def disable
+        @job = Job.find(params[:id])
+        @job.disabled!
+        redirect_to @job.company
+    end
+
+    def enable
+        @job = Job.find(params[:id])
+        @job.enabled!
+        redirect_to @job.company
+    end
+
+
     private
 
     def job_params

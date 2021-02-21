@@ -1,24 +1,35 @@
-<% if current_recruiter.company == @company %>
-  <h1> Painel do recrutador - <%= @company.name %> </h1>
+<h1><%= @company.name %></h1>
 
-  <h2>Vagas publicadas</h2>
-  <% if @company.jobs.empty? %>
-    <p>Nenhuma vaga publicada</p>
-  <% else %>
-    <dl>
-      <% @company.jobs.each do |job| %>
-        <dt><%= Job.human_attribute_name(:title) %></dt>
-        <dd><%= link_to job.title, job_path(job) %></dd>
+<h2>Vagas publicadas</h2>
+
+<% if @company.jobs.empty? %>
+  <p>Nenhuma vaga publicada</p>
+<% else %>
+  <% @company.jobs.each do |job| %>
+    <% if job.enabled? %>
+      <h3><%= link_to job.title, job_path(job) %></h3>
+      <dl>
         <dt><%= Job.human_attribute_name(:description) %></dt>
         <dd><%= job.description %></dd>
-      <% end %>
-    </dl>
+      </dl>
+      <hr>
+    <% end %>
   <% end %>
+<% end %>
+
+<% if current_recruiter.company == @company %>
+  <h2> Painel do recrutador - <%= @company.name %> </h2>
 
   <%= link_to 'Publicar vagas', new_job_path %>
 
+  <h3>Vagas desativadas: <%= @company.jobs.disabled.count %></h3>
+  <% @company.jobs.each do |job| %>
+    <% if job.disabled? %>
+      <p><%= job.title %> - <%= link_to 'Ver detalhes', job_path(job) %></p>
+      <hr>
+    <% end %>
+  <% end %>
 <% end %>
 
-
-<%= link_to 'Voltar', root_path %>
+<%= link_to 'Voltar', :back %>
 

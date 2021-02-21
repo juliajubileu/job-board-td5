@@ -1,10 +1,14 @@
 <% if flash[:notice] %>
-<div>
-  <p><%= flash[:notice] %></p>
-</div>
+  <div>
+    <p><%= flash[:notice] %></p>
+  </div>
 <% end %>
 
 <h1><%= @job.title %></h1>
+
+<% if @job.disabled? %>
+  <p> Vaga desativada </p>
+<% end %>
 
 <dl>
   <dt><%= Job.human_attribute_name(:description) %></dt>
@@ -28,7 +32,8 @@
 
 <% if current_recruiter&.company == @job.company %>
   <%= link_to 'Editar vaga', edit_job_path %>
-  <%= link_to 'Desativar vaga' %>
+  <%= link_to 'Desativar vaga', disable_job_path(@job), method: :post unless @job.disabled? %>
+  <%= link_to 'Ativar vaga', enable_job_path(@job), method: :post unless @job.enabled? %>
   <%= link_to 'Ver candidaturas' %>
 <% end %>
 

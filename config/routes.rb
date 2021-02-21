@@ -3,5 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :recruiters, controllers: { registrations: 'recruiter/registrations' }
 
-  resources :companies, :jobs
+  resources :companies
+  resources :jobs do
+    post 'disable', on: :member
+    post 'enable', on: :member
+  end
+
 end
