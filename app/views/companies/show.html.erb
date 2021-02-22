@@ -6,7 +6,7 @@
   <p>Nenhuma vaga publicada</p>
 <% else %>
   <% @company.jobs.each do |job| %>
-    <% if job.enabled? %>
+    <% unless job.disabled? %>
       <h3><%= link_to job.title, job_path(job) %></h3>
       <dl>
         <dt><%= Job.human_attribute_name(:description) %></dt>
@@ -16,6 +16,7 @@
     <% end %>
   <% end %>
 <% end %>
+
 
 <% if current_recruiter.company == @company %>
   <h2> Painel do recrutador - <%= @company.name %> </h2>

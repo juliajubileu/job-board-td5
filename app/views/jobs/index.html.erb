@@ -4,7 +4,7 @@
   <p>Nenhuma vaga encontrada</p>
 <% else %>
   <% @jobs.each do |job| %>
-    <% if job.enabled? %>
+    <% unless job.disabled? %>
       <dl>
         <dt><%= Job.human_attribute_name(:title) %></dt>
         <dd><%= link_to job.title, job_path(job) %></dd>

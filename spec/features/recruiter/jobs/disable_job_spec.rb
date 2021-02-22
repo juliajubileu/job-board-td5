@@ -38,7 +38,7 @@ feature 'Recruiter disables a job' do
       job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Ruby on Rails',
                         expiration_date: '06/09/2021', spots_available: 4, company: company,
-                        status: disabled)
+                        status: :disabled)
 
       login_as recruiter, scope: :recruiter
       visit root_path
@@ -47,6 +47,7 @@ feature 'Recruiter disables a job' do
       click_on 'Ativar vaga'
       click_on job.title
 
+      job.reload
       expect(page).to have_link('Desativar vaga')
       expect(job).to be_enabled
     end
@@ -58,11 +59,11 @@ feature 'Recruiter disables a job' do
       disabled_job = Job.create!(title: 'Desenvolvedor(a) Mobile', description: 'Desenvolvimento de app mobile', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Dev Mobile',
                         expiration_date: '06/10/2021', spots_available: 4, company: company,
-                        status: disabled)
+                        status: :disabled)
       enabled_job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Ruby on Rails',
                         expiration_date: '06/09/2021', spots_available: 4, company: company,
-                        status: enabled)
+                        status: :enabled)
       visit root_path
       click_on 'Ver vagas'
 
