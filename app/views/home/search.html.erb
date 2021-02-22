@@ -1,0 +1,27 @@
+<h1> Resultados da busca </h1>
+
+<h2>Empresas:</h2>
+<% if @companies.empty? %>
+  <p>Nenhuma empresa encontrada</p>
+<% else %>
+  <% @companies.each do |company| %>
+    <p><%= link_to company.name, company_path(company) %> - <%= company.website %></p>
+  <% end %>
+<% end %>
+
+<h2>Vagas:</h2>
+<% if @jobs.empty? %>
+  <p>Nenhuma vaga encontrada</p>
+<% else %>
+  <dl>
+    <% @jobs.each do |job| %>
+      <% unless job.disabled? %>
+          <dt><%= link_to job.title, job_path(job) %> - <%= job.company.name %></dt>
+          <dd>Nível: <%= job.level %></dd>
+          <hr>
+      <% end %>
+    <% end %>
+  </dl>
+<% end %>
+
+<%= link_to 'Voltar', root_path %>

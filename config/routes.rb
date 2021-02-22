@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get 'search', to: 'home#search'
 
   devise_for :recruiters, controllers: { registrations: 'recruiter/registrations' }
 

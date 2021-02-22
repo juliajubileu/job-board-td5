@@ -2,5 +2,11 @@
 
 <p>Encontre vagas de trabalho em tecnologia!</p>
 
+<%= form_with url: search_path, method: :get do %>
+    <%= label_tag :q, 'Encontre vagas:' %>
+    <%= text_field_tag :q %>
+    <%= submit_tag 'Pesquisar' %>
+  <% end %>
+
 <%= link_to 'Ver vagas', jobs_path %>
 <%= link_to 'Ver empresas', companies_path %> 
