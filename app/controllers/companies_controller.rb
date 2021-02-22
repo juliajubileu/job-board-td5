@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
     def index
-        @company = Company.all
+        @companies = Company.all
     end
 
     def show
@@ -36,6 +36,6 @@ class CompaniesController < ApplicationController
     private 
     
     def company_params
-        params.require(:company).permit(:name, :address, :cnpj, :domain, :website, :logo)
+        params.require(:company).permit(:name, :address, :cnpj, :domain, :website, :logo, :about)
     end
 end 

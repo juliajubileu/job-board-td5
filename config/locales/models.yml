@@ -23,6 +23,7 @@ pt-BR:
         cnpj: 'CNPJ'
         domain: 'Domínio de e-mail'
         website: 'Site'
+        about: 'Sobre nós'
       job:
         title: 'Título'
         description: 'Descrição'

@@ -17,6 +17,9 @@
 <%= form_with model: @company do |form| %>
     <%= form.label :name, "Nome" %>
     <%= form.text_field :name %>
+
+    <%= form.label :about, "Sobre a empresa" %>
+    <%= form.text_area :about, size: "70x5" %>
     
     <%= form.label :address, "Endereço" %>
     <%= form.text_field :address %>

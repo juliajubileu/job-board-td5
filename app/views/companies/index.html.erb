@@ -1,0 +1,13 @@
+<h1>Empresas</h1>
+
+<% if @companies.empty? %>
+  <p>Nenhuma empresa encontrada</p>
+<% else %>
+  <% @companies.each do |company| %>
+      <h3><%= link_to company.name, company_path(company) %></h3>
+      <%= company.logo %>
+      <hr>
+  <% end %>
+<% end %>
+
+<%= link_to 'Voltar', root_path %>

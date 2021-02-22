@@ -1,4 +1,16 @@
 <h1><%= @company.name %></h1>
+<%= @company.logo %>
+
+<dl>
+  <dt><%= Company.human_attribute_name(:about) %></dt>
+  <dd><%= @company.about %></dd>
+
+  <dt><%= Company.human_attribute_name(:address) %></dt>
+  <dd><%= @company.address %></dd>
+
+  <dt><%= Company.human_attribute_name(:website) %></dt>
+  <dd><%= @company.website %></dd>
+</dl>
 
 <h2>Vagas publicadas</h2>
 
