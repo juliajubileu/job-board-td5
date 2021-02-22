@@ -4,6 +4,9 @@ pt-BR:
       recruiter:
         one: 'Recrutador'
         other: 'Recrutadores'
+      candidate:
+        one: 'Candidato'
+        other: 'Candidatos'
       company:
         one: 'Empresa'
         other: 'Empresas'
@@ -17,6 +20,17 @@ pt-BR:
         password: 'Senha'
         password_confirmation: 'Confirmação de senha'
         remember_me: 'Lembrar de mim'
+      candidate:
+        current_password: 'Senha atual'
+        email: 'E-mail'
+        password: 'Senha'
+        password_confirmation: 'Confirmação de senha'
+        remember_me: 'Lembrar de mim'
+        full_name: 'Nome completo'
+        social_name: 'Nome social'
+        cpf: 'CPF'
+        phone: 'Telefone'
+        bio: 'Bio'
       company:
         name: 'Nome'
         address: 'Endereço'

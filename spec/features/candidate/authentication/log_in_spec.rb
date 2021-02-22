@@ -51,7 +51,7 @@ feature 'Candidate log in the platform' do
 
         expect(page).to have_content 'E-mail ou senha inválidos.'
         expect(page).to have_link 'Acesso candidatos'
-        expect(page).not_to have_content recruiter.email
+        expect(page).not_to have_content candidate.email
         expect(page).not_to have_content 'Login efetuado com sucesso'
     end
 end

@@ -11,7 +11,7 @@ xfeature 'Candidate edits profile' do
         click_on 'Atualizar perfil'
         within('form') do
           fill_in 'Nome completo', with: 'Maria da Silva'
-          fill_in 'Nome Social', with: 'Maria'
+          fill_in 'Nome social', with: 'Maria'
           fill_in 'Senha', with: '123456'
           fill_in 'Confirme a senha', with: '123456'
           click_on 'Salvar'
@@ -34,7 +34,7 @@ xfeature 'Candidate edits profile' do
         click_on 'Atualizar perfil'
         within('form') do
             fill_in 'Nome completo', with: 'Maria da Silva'
-            fill_in 'Nome Social', with: 'Maria'
+            fill_in 'Nome social', with: 'Maria'
             fill_in 'Senha', with: ''
             fill_in 'Confirme a senha', with: ''
             click_on 'Salvar'
@@ -56,7 +56,7 @@ xfeature 'Candidate edits profile' do
         click_on 'Atualizar perfil'
         within('form') do
           fill_in 'Nome completo', with: 'Maria da Silva'
-          fill_in 'Nome Social', with: 'Maria'
+          fill_in 'Nome social', with: 'Maria'
           fill_in 'Senha', with: '123456'
           fill_in 'Confirme a senha', with: '654321'
           click_on 'Salvar'

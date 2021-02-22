@@ -6,6 +6,18 @@ pt-BR:
         password: 'Senha'
         password_confirmation: 'Confirme a senha'
   
+  candidates: 
+    registrations:
+      new: 
+        full_name: 'Nome completo'
+        social_name: 'Nome social'
+        cpf: 'CPF'
+        phone: 'Telefone'
+        bio: 'Bio'
+        email: 'E-mail'
+        password: 'Senha'
+        password_confirmation: 'Confirme a senha'
+  
   companies:
     new:
       name: 'Nome'

@@ -25,9 +25,27 @@
               <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete %>
             </div>
           </li>
+        <% elsif candidate_signed_in? %>
+          <li class="nav-item">
+            <div class="nav-link active">
+              <%= link_to current_candidate.email, root_path %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link active">
+              <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete %>
+            </div>
+          </li>
         <% else %>
-          <li class="nav-item"> 
-            <%= link_to 'Acesso recrutadores', new_recruiter_session_path %> 
+          <li class="nav-item">
+            <div class="nav-link active">
+              <%= link_to 'Acesso candidatos', new_candidate_session_path %>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link active">
+              <%= link_to 'Acesso recrutadores', new_recruiter_session_path %>
+            </div>
           </li>
         <% end %>
       </ul>

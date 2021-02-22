@@ -9,14 +9,17 @@ feature 'Candidate signs up' do
     end
 
     scenario 'and from the job page' do
+      company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
+                                cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
+                                domain: 'campuscode.com.br')
         job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Ruby on Rails',
-                        expiration_date: '06/09/2021', spots_available: 4, company: company,
-                        status: :enabled)
+                        expiration_date: '06/09/2021', spots_available: 4, company: company)
 
         visit root_url
         click_on 'Ver vagas'
         click_on job.title
+        click_on 'Candidate-se para esta vaga'
 
         expect(current_path).to eq(new_candidate_session_path)
     end
@@ -27,11 +30,11 @@ feature 'Candidate signs up' do
         click_on 'Registre-se'
         within('form') do
           fill_in 'Nome completo', with: 'Maria da Silva'
-          fill_in 'Nome Social', with: ''
+          fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '1234560984'
           fill_in 'E-mail', with: 'maria@email.com'
           fill_in 'Senha', with: '123456'
-          fill_in 'Confirme a senha', with: '123456'
+          fill_in 'Confirmação de senha', with: '123456'
           click_on 'Salvar'
         end
 
@@ -47,11 +50,11 @@ feature 'Candidate signs up' do
         click_on 'Registre-se'
         within('form') do
             fill_in 'Nome completo', with: 'Maria da Silva'
-            fill_in 'Nome Social', with: ''
+            fill_in 'Nome social', with: ''
             fill_in 'CPF', with: '1234560984'
             fill_in 'E-mail', with: 'maria@email.com'
             fill_in 'Senha', with: ''
-            fill_in 'Confirme a senha', with: ''
+            fill_in 'Confirmação de senha', with: ''
             click_on 'Salvar'
           end
 
@@ -67,11 +70,11 @@ feature 'Candidate signs up' do
         click_on 'Registre-se'
         within('form') do
           fill_in 'Nome completo', with: 'Maria da Silva'
-          fill_in 'Nome Social', with: ''
+          fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '1234560984'
           fill_in 'E-mail', with: 'maria@email.com'
           fill_in 'Senha', with: '123456'
-          fill_in 'Confirme a senha', with: '654321'
+          fill_in 'Confirmação de senha', with: '654321'
           click_on 'Salvar'
         end
 
@@ -87,11 +90,11 @@ feature 'Candidate signs up' do
         click_on 'Registre-se'
         within('form') do
           fill_in 'Nome completo', with: 'Maria da Silva'
-          fill_in 'Nome Social', with: ''
+          fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '1234560984'
           fill_in 'E-mail', with: 'maria'
           fill_in 'Senha', with: '123456'
-          fill_in 'Confirme a senha', with: '123456'
+          fill_in 'Confirmação de senha', with: '123456'
           click_on 'Salvar'
         end
         
@@ -110,11 +113,11 @@ feature 'Candidate signs up' do
         click_on 'Registre-se'
         within('form') do
           fill_in 'Nome completo', with: 'Maria da Silva'
-          fill_in 'Nome Social', with: ''
+          fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '1234560984'
-          fill_in 'E-mail', with: 'maria@email.com'
+          fill_in 'E-mail', with: 'maria@email.com.br'
           fill_in 'Senha', with: '123456'
-          fill_in 'Confirme a senha', with: '123456'
+          fill_in 'Confirmação de senha', with: '123456'
           click_on 'Salvar'
         end
 
@@ -133,11 +136,11 @@ feature 'Candidate signs up' do
         click_on 'Registre-se'
         within('form') do
           fill_in 'Nome completo', with: 'Maria da Silva'
-          fill_in 'Nome Social', with: ''
+          fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '12312312312'
           fill_in 'E-mail', with: 'maria.oliveira@email.com'
           fill_in 'Senha', with: '123456'
-          fill_in 'Confirme a senha', with: '123456'
+          fill_in 'Confirmação de senha', with: '123456'
           click_on 'Salvar'
         end
 
