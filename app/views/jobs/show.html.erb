@@ -5,9 +5,8 @@
 <% end %>
 
 <h1><%= @job.title %></h1>
-
 <% if @job.disabled? %>
-  <p> Vaga desativada </p>
+  <h2> Vaga desativada </h2>
 <% end %>
 
 <dl>
@@ -30,7 +29,14 @@
   <dd><%= I18n.localize(@job.expiration_date) %></dd>
 </dl>
 
+<% unless recruiter_signed_in? %>
+  <%= link_to 'Candidate-se para esta vaga', new_candidate_session_path %>
+<% end %>
+
+
 <% if current_recruiter&.company == @job.company %>
+  <h2> Painel do recrutador - <%= @job.company.name %> </h2>
+
   <%= link_to 'Editar vaga', edit_job_path %>
   <%= link_to 'Desativar vaga', disable_job_path(@job), method: :post unless @job.disabled? %>
   <%= link_to 'Ativar vaga', enable_job_path(@job), method: :post unless @job.enabled? %>

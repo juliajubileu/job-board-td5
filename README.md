@@ -18,8 +18,8 @@ Realizado como projeto final do [TreinaDev](https://www.treinadev.com.br/home), 
 - [x] Colaborador preenche dados da empresa, caso seja a primeira pessoa da empresa a se cadastrar
 - [x] Colaborador cadastra uma nova vaga de emprego
 - [x] Visitante navega pelo site e vê as empresas cadastradas
-- [ ] Visitante decide se inscrever para uma vaga
-- [ ] Visitante cria sua conta e preenche um perfil para confirmar sua candidatura
+- [x] Visitante decide se inscrever para uma vaga
+- [x] Visitante cria sua conta e preenche um perfil para confirmar sua candidatura
 - [ ] Colaborador da empresa visualiza as candidaturas recebidas
 - [ ] Colaborador da empresa faz uma proposta para um candidato
 - [ ] Candidato (agora autenticado) visualiza as propostas recebidas

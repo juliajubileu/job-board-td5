@@ -1,5 +1,5 @@
 <h1><%= @company.name %></h1>
-<%= @company.logo %>
+<%= image_tag(@company.logo) %>
 
 <dl>
   <dt><%= Company.human_attribute_name(:about) %></dt>
