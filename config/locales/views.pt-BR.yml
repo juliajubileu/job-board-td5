@@ -13,7 +13,7 @@ pt-BR:
         social_name: 'Nome social'
         cpf: 'CPF'
         phone: 'Telefone'
-        bio: 'Bio'
+        bio: 'Conte um pouco sobre você'
         email: 'E-mail'
         password: 'Senha'
         password_confirmation: 'Confirme a senha'

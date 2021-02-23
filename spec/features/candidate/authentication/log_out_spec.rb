@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Candidate log out of platform' do
     scenario 'successfully' do
-        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',
+        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312', bio: 'candidata',
         email: 'maria@email.com.br', password: '234567')
 
         login_as candidate, scope: :candidate

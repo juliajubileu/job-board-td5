@@ -32,6 +32,7 @@ feature 'Candidate signs up' do
           fill_in 'Nome completo', with: 'Maria da Silva'
           fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '1234560984'
+          fill_in 'Conte um pouco sobre você', with: 'Candidata'
           fill_in 'E-mail', with: 'maria@email.com'
           fill_in 'Senha', with: '123456'
           fill_in 'Confirmação de senha', with: '123456'
@@ -52,6 +53,7 @@ feature 'Candidate signs up' do
             fill_in 'Nome completo', with: 'Maria da Silva'
             fill_in 'Nome social', with: ''
             fill_in 'CPF', with: '1234560984'
+          fill_in 'Conte um pouco sobre você', with: 'Candidata'
             fill_in 'E-mail', with: 'maria@email.com'
             fill_in 'Senha', with: ''
             fill_in 'Confirmação de senha', with: ''
@@ -72,6 +74,7 @@ feature 'Candidate signs up' do
           fill_in 'Nome completo', with: 'Maria da Silva'
           fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '1234560984'
+          fill_in 'Conte um pouco sobre você', with: 'Candidata'
           fill_in 'E-mail', with: 'maria@email.com'
           fill_in 'Senha', with: '123456'
           fill_in 'Confirmação de senha', with: '654321'
@@ -92,6 +95,7 @@ feature 'Candidate signs up' do
           fill_in 'Nome completo', with: 'Maria da Silva'
           fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '1234560984'
+          fill_in 'Conte um pouco sobre você', with: 'Candidata'
           fill_in 'E-mail', with: 'maria'
           fill_in 'Senha', with: '123456'
           fill_in 'Confirmação de senha', with: '123456'
@@ -105,7 +109,7 @@ feature 'Candidate signs up' do
     end
 
     scenario 'and email can not be at use' do
-        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',
+        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312', bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
         
         visit root_url
@@ -115,6 +119,7 @@ feature 'Candidate signs up' do
           fill_in 'Nome completo', with: 'Maria da Silva'
           fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '1234560984'
+          fill_in 'Conte um pouco sobre você', with: 'Candidata'
           fill_in 'E-mail', with: 'maria@email.com.br'
           fill_in 'Senha', with: '123456'
           fill_in 'Confirmação de senha', with: '123456'
@@ -128,7 +133,7 @@ feature 'Candidate signs up' do
     end
 
     scenario 'and cpf must be unique' do
-        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',
+        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
         
         visit root_url
@@ -138,6 +143,7 @@ feature 'Candidate signs up' do
           fill_in 'Nome completo', with: 'Maria da Silva'
           fill_in 'Nome social', with: ''
           fill_in 'CPF', with: '12312312312'
+          fill_in 'Conte um pouco sobre você', with: 'Candidata'
           fill_in 'E-mail', with: 'maria.oliveira@email.com'
           fill_in 'Senha', with: '123456'
           fill_in 'Confirmação de senha', with: '123456'

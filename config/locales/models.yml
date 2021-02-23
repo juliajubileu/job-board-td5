@@ -29,6 +29,7 @@ pt-BR:
         full_name: 'Nome completo'
         social_name: 'Nome social'
         cpf: 'CPF'
+        bio: 'Conte um pouco sobre você'
         phone: 'Telefone'
         bio: 'Bio'
       company:

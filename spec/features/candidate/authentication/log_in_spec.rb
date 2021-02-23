@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Candidate log in the platform' do
     scenario 'successfully' do
-        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',
+        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312', bio: 'candidata',
                                      email: 'maria@email.com.br', password: '234567')
 
         visit root_path
@@ -20,7 +20,7 @@ feature 'Candidate log in the platform' do
     end
 
     scenario 'and must fill all fields' do
-        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',
+        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312', bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
 
         visit root_path
@@ -38,7 +38,7 @@ feature 'Candidate log in the platform' do
     end
 
     scenario 'and with the right email and password' do
-        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',
+        candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312', bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
 
         visit root_path
