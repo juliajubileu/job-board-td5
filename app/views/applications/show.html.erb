@@ -1,0 +1,10 @@
+<h1>Acompanhe sua candidatura</h1>
+
+<%= @job.title %>, <%= @job.company.name %>
+<%= @job.description %>
+
+<%= @application.letter %>
+
+# TODO add: salario, status e enviada em 'data'
+
+<%= link_to 'Retirar candidatura', application_path(@application), method: :delete %>

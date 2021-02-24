@@ -15,9 +15,8 @@ feature 'Candidate applies for job' do
       visit root_url
       click_on 'Ver vagas'
       click_on job.title
-      click_on 'Candidate-se para esta vaga'
 
-      expect(current_path).to eq(new_application_path)
+      expect(page).to have_link('Candidate-se para esta vaga')
     end
 
     scenario 'successfully' do
@@ -39,8 +38,7 @@ feature 'Candidate applies for job' do
 
       expect(current_path).to eq(job_path(job))
       expect(page).to have_content('Candidatura realizada com sucesso')
-      expect(page).to have_link('Retirar candidatura')
-      expect(page).not_to have_link('Candidate-se para esta vaga')
+      expect(page).to have_link('Acompanhar candidatura')
     end
 
     scenario 'and can not apply more than once' do
@@ -60,7 +58,7 @@ feature 'Candidate applies for job' do
       click_on job.title
 
       expect(current_path).to eq(job_path(job))
-      expect(page).to have_link('Retirar candidatura')
+      expect(page).to have_link('Acompanhar candidatura')
       expect(page).not_to have_link('Candidate-se para esta vaga')
     end
 end

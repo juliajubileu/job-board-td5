@@ -29,8 +29,10 @@
   <dd><%= I18n.localize(@job.expiration_date) %></dd>
 </dl>
 
-<% unless recruiter_signed_in? %>
-  <%= link_to 'Candidate-se para esta vaga', new_candidate_session_path %>
+<% unless recruiter_signed_in? || @job.candidates.include?(current_candidate) %>
+  <%= link_to "Candidate-se para esta vaga", new_job_application_path(@job) %>
+<% else @job.candidates.include?(current_candidate) %>
+  <%= link_to "Acompanhar candidatura" %>
 <% end %>
 
 

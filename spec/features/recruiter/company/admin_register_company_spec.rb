@@ -123,7 +123,7 @@ feature 'Recruiter registers company info' do
             click_on 'Salvar'
           end
 
-        expect(current_path).to eq(company_path(company))
+        expect(current_path).to eq(recruiters_path)
         expect(page).to have_content('Painel do recrutador - Campus Code')
         expect(page).to have_link('Sair')
         expect(page).not_to have_content('Cadastro de empresa')

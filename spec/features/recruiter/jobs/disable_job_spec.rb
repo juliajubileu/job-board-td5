@@ -21,6 +21,7 @@ feature 'Recruiter disables a job' do
       login_as recruiter, scope: :recruiter
       visit root_path
       click_on recruiter.email
+      click_on 'Minha empresa'
       click_on job.title
       click_on 'Desativar vaga'
 
@@ -43,6 +44,7 @@ feature 'Recruiter disables a job' do
       login_as recruiter, scope: :recruiter
       visit root_path
       click_on recruiter.email
+      click_on 'Minha empresa'
       click_on 'Ver detalhes'
       click_on 'Ativar vaga'
       click_on job.title

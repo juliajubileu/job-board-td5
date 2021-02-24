@@ -17,7 +17,7 @@
         <% if recruiter_signed_in? %>
           <li class="nav-item">
             <div class="nav-link active">
-              <%= link_to current_recruiter.email, company_path(current_recruiter.company) %>
+              <%= link_to current_recruiter.email, recruiters_path %>
             </div>
           </li>
           <li class="nav-item">
@@ -28,7 +28,7 @@
         <% elsif candidate_signed_in? %>
           <li class="nav-item">
             <div class="nav-link active">
-              <%= link_to current_candidate.email, root_path %>
+              <%= link_to current_candidate.email, candidates_path %>
             </div>
           </li>
           <li class="nav-item">

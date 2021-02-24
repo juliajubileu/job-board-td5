@@ -1,0 +1,25 @@
+<h1>Candidatura para vaga de <%= @job.title %></h1>
+
+<p> Revise os detalhes da vaga: </p>
+<dl>
+  <dt>Empresa</dt>
+  <dd><%=link_to @job.company.name, company_path(@job.company) %></dd>
+
+  <dt>Descrição da vaga</dt>
+  <dd><%= @job.description %></dd>
+
+  <dt>Nível do cargo</dt>
+  <dd><%= @job.level %></dd>
+
+  <dt>Oferta de remuneração</dt>
+  <dd><%= number_to_currency(@job.remuneration) %></dd>
+</dl>
+
+<%= form_with model: [@job, @application] do |f|%>
+  <%= f.label :letter, 'Escreva uma breve carta de apresentação'%>
+  <%= f.text_area :letter, size: "70x5" %>
+  
+  <%= f.submit 'Confirmar candidatura' %>
+<% end %>
+
+<%= link_to 'Desistir da candidatura', :back %>

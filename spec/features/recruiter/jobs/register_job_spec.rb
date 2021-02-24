@@ -13,7 +13,7 @@ feature 'Recruiter register a job opening' do
         visit root_url
         click_on recruiter.email
 
-        expect(current_path).to eq(company_path(company))
+        expect(current_path).to eq(recruiters_path)
         expect(page).to have_content('Painel do recrutador - Campus Code')
         expect(page).to have_link('Publicar vaga')
     end

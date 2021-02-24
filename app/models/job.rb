@@ -1,5 +1,8 @@
 class Job < ApplicationRecord
   belongs_to :company
+  has_many :applications
+  has_many :candidates, through: :applications 
+
   validates :title, :description, :remuneration, :level, :requirements,
             :expiration_date, :spots_available, presence: true
   validate :remuneration_cannot_be_less_than_minimum_wage, 

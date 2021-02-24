@@ -40,7 +40,7 @@ class Recruiters::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    company_path(resource.company)
+    recruiters_path
   end
 
   private

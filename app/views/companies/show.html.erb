@@ -30,8 +30,6 @@
 
 
 <% if current_recruiter.company == @company %>
-  <h2> Painel do recrutador - <%= @company.name %> </h2>
-
   <%= link_to 'Publicar vagas', new_job_path %>
 
   <h3>Vagas desativadas: <%= @company.jobs.disabled.count %></h3>
