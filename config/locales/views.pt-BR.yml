@@ -22,3 +22,10 @@ pt-BR:
     new:
       name: 'Nome'
       cnpj: 'CNPJ'
+
+  job:
+    applications:
+      index:
+        pending: 'Pendente de avaliação'
+        approved: 'Candidatura aprovada!'
+        rejected: 'Candidatura declinada'

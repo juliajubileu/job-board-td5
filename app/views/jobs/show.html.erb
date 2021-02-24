@@ -42,7 +42,7 @@
   <%= link_to 'Editar vaga', edit_job_path %>
   <%= link_to 'Desativar vaga', disable_job_path(@job), method: :post unless @job.disabled? %>
   <%= link_to 'Ativar vaga', enable_job_path(@job), method: :post unless @job.enabled? %>
-  <%= link_to 'Ver candidaturas' %>
+  <%= link_to 'Avaliar candidaturas', job_applications_path(@job) %>
 <% end %>
 
 <%= link_to 'Voltar', :back %>

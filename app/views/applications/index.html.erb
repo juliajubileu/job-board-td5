@@ -1,0 +1,11 @@
+<h1>Candidaturas para a vaga de <%= @job.title %>
+
+<% @job.applications.each do |application| %>
+    <%= application.candidate.full_name %>
+    <%= application.letter %>
+    <% if application.pending? %>
+      <p>Pendente de avaliação</p>
+      <%= link_to 'Enviar proposta' %>
+      <%= link_to 'Declinar candidatura' %>
+    <% end %>
+<% end %>

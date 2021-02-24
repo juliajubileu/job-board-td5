@@ -1,9 +1,8 @@
 <h1><%= current_candidate.full_name %></h1>
 
-<%= current_candidate.bio %>
 <%= link_to 'Editar perfil' %>
 
-<h2>Minhas candidaturas: <%= current_candidate.applications.count %>
+<h2>Minhas candidaturas: <%= current_candidate.applications.count %></h2>
 <% current_candidate.applications.each do |application| %>
     <p><%= link_to application.job.title, application_path(application) %> - <%= application.job.company.name %></p>
     <hr>

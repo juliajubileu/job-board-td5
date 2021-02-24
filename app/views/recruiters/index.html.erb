@@ -1,5 +1,4 @@
 <h1>Painel do recrutador - <%= current_recruiter.company.name %></h1>
 
-<%= link_to 'Minha empresa', company_path(current_recruiter.company) %>
-<%= link_to 'Avaliar candidaturas', job_applications_path(current_recruiter.company) %>
+<%= link_to 'Vagas publicadas', company_path(current_recruiter.company) %>
 <%= link_to 'Publicar vagas', new_job_path %>

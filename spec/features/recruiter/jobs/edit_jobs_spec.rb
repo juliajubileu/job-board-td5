@@ -13,7 +13,7 @@ feature 'Recruiter edits company job openings' do
       login_as recruiter, scope: :recruiter
       visit root_url
       click_on recruiter.email
-      click_on 'Minha empresa'
+      click_on 'Vagas publicadas'
       click_on 'Desenvolvedor(a) Web'
 
       expect(current_path).to eq(job_path(job)) 
@@ -33,7 +33,7 @@ feature 'Recruiter edits company job openings' do
       login_as recruiter, scope: :recruiter
       visit root_url
       click_on recruiter.email
-      click_on 'Minha empresa'
+      click_on 'Vagas publicadas'
       click_on 'Desenvolvedor(a) Web'
       click_on 'Editar vaga'
       within ('form') do
@@ -63,7 +63,7 @@ feature 'Recruiter edits company job openings' do
       login_as recruiter, scope: :recruiter
       visit root_url
       click_on recruiter.email
-      click_on 'Minha empresa'
+      click_on 'Vagas publicadas'
       click_on 'Desenvolvedor(a) Web'
       click_on 'Editar vaga'
       within ('form') do

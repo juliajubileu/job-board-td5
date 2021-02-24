@@ -1,8 +1,8 @@
 class ApplicationsController < ApplicationController
-  before_action :authenticate_candidate!
+  before_action :authenticate_candidate!, except: %i[index]
 
   def index
-
+    @job = Job.find(params[:job_id])
   end
 
   def show
