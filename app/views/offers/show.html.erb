@@ -1,0 +1,19 @@
+<h1>Oferta de trabalho</h1>
+
+<h2>Vaga de <%= @job.title %>, em <%= @company.name %>
+<p>Confira a proposta abaixo:</p>
+
+<dl>
+  <dt>Mensagem da empresa:</dt>
+  <dd><%= @offer.message %></dd>
+
+  <dt>Oferta de remuneração:</dt>
+  <dd><%= @offer.salary %></dd>
+
+  <dt>Data de início:</dt>
+  <dd><%= @offer.starting_date %></dd>
+</dl>
+
+<%= link_to 'Aceitar oferta' %>
+<%= link_to 'Declinar oferta' %>
+<%= link_to 'Contra proposta' %>

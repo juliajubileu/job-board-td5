@@ -2,7 +2,10 @@ class OffersController < ApplicationController
   before_action :authenticate_recruiter!, except: %i[show]
 
     def show
-
+      @offer = Offer.find(params[:id])
+      @application = @offer.application
+      @job = @application.job
+      @company = @job.company
     end
 
     def new
