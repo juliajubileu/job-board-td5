@@ -2,7 +2,6 @@ class ApplicationsController < ApplicationController
   before_action :authenticate_candidate!, except: %i[index]
   before_action :authenticate_recruiter!, only: %i[index]
 
-
   def index
     @job = Job.find(params[:job_id])
   end

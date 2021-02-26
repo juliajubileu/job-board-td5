@@ -10,7 +10,7 @@
     <p><%= application.candidate.email %></p>
     <p><%= application.letter %></p>
 
-    <%= link_to 'Enviar proposta' %>
+    <%= link_to 'Enviar proposta', new_application_offer_path(application) %>
     <%= link_to 'Declinar candidatura', new_application_rejection_path(application) %>
     <hr>
   <% end %>

@@ -60,7 +60,7 @@ feature 'Recruiter sends offer to candidate' do
       
         expect(page).to have_content('Não foi possível enviar oferta')
         expect(page).to have_content('Mensagem não pode ficar em branco')
-        expect(page).to have_content('Remuneração não pode ficar em branco')
+        expect(page).to have_content('Oferta de remuneração não pode ficar em branco')
         expect(page).to have_content('Data de início não pode ficar em branco')
         expect(application.pending?).to be_truthy
     end

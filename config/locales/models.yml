@@ -49,4 +49,8 @@ pt-BR:
         spots_available: 'Vagas disponíveis'
       rejection:
         motive: 'Motivo'
+      offer:
+        message: 'Mensagem'
+        salary: 'Oferta de remuneração'
+        starting_date: 'Data de início'
         

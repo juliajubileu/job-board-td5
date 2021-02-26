@@ -28,7 +28,4 @@ pt-BR:
         pending: 'Pendente de avaliação'
         approved: 'Candidatura aprovada!'
         rejected: 'Candidatura declinada'
-  
-  rejections:
-    new: 
-      motive: 'Motivo'
+

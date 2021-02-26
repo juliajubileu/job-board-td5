@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_193408) do
+ActiveRecord::Schema.define(version: 2021_02_26_222518) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -94,6 +94,16 @@ ActiveRecord::Schema.define(version: 2021_02_26_193408) do
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
+  create_table "offers", force: :cascade do |t|
+    t.integer "salary"
+    t.date "starting_date"
+    t.text "message"
+    t.integer "application_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["application_id"], name: "index_offers_on_application_id"
+  end
+
   create_table "recruiters", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -120,6 +130,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_193408) do
   add_foreign_key "applications", "candidates"
   add_foreign_key "applications", "jobs"
   add_foreign_key "jobs", "companies"
+  add_foreign_key "offers", "applications"
   add_foreign_key "recruiters", "companies"
   add_foreign_key "rejections", "applications"
 end

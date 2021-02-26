@@ -1,0 +1,32 @@
+<h1>Enviar oferta</h1>
+
+<% if @offer.errors.any? %>
+  <p>Não foi possível enviar oferta</p>
+  <p>Confira os erros abaixo:</p>
+    <ul>
+      <% @offer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul> 
+<% end %>
+
+<%= form_with model: [@application, @offer] do |f|%>
+  <div class="field">
+    <%= f.label :message, 'Mensagem de aprovação' %>
+    <%= f.text_area :message, size: "70x5" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :salary, 'Oferta de remuneração' %>
+    <%= f.text_field :salary %>
+  </div>
+
+  <div class="field">
+    <%= f.label :starting_date, 'Data de início' %>
+    <%= f.text_field :starting_date %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Enviar proposta' %>
+  </div>
+<% end %>
