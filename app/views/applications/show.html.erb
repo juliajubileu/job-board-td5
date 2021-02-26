@@ -2,9 +2,9 @@
 
 <%= @job.title %>, <%= @job.company.name %>
 <%= @job.description %>
-
+<%= @job.remuneration %>
 <%= @application.letter %>
-
-# TODO add: salario, status e enviada em 'data'
+<%= @application.created_at %>
+<%= @application.status %>
 
 <%= link_to 'Retirar candidatura', application_path(@application), method: :delete %>

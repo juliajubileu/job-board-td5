@@ -8,12 +8,11 @@ feature 'Recruiter edits company job openings' do
       recruiter = Recruiter.create!(email: 'dev@campuscode.com.br', password: '654321', company: company)
       job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Ruby on Rails',
-                        expiration_date: '06/09/2021', spots_available: 4, company: company)
+                        expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
 
       login_as recruiter, scope: :recruiter
       visit root_url
       click_on recruiter.email
-      click_on 'Vagas publicadas'
       click_on 'Desenvolvedor(a) Web'
 
       expect(current_path).to eq(job_path(job)) 
@@ -27,13 +26,12 @@ feature 'Recruiter edits company job openings' do
       recruiter = Recruiter.create!(email: 'dev@campuscode.com.br', password: '654321', company: company)
       job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Ruby on Rails',
-                        expiration_date: '06/09/2021', spots_available: 4, company: company)
+                        expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
 
 
       login_as recruiter, scope: :recruiter
       visit root_url
       click_on recruiter.email
-      click_on 'Vagas publicadas'
       click_on 'Desenvolvedor(a) Web'
       click_on 'Editar vaga'
       within ('form') do
@@ -57,13 +55,12 @@ feature 'Recruiter edits company job openings' do
       recruiter = Recruiter.create!(email: 'dev@campuscode.com.br', password: '654321', company: company)
       job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Ruby on Rails',
-                        expiration_date: '06/09/2021', spots_available: 4, company: company)
+                        expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
 
                         
       login_as recruiter, scope: :recruiter
       visit root_url
       click_on recruiter.email
-      click_on 'Vagas publicadas'
       click_on 'Desenvolvedor(a) Web'
       click_on 'Editar vaga'
       within ('form') do

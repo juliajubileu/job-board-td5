@@ -15,26 +15,43 @@
   <% end %>
 
 <%= form_with model: @company do |form| %>
+  <div class="field">
     <%= form.label :name, "Nome" %>
     <%= form.text_field :name %>
+  </div>
 
+  <div class="field">
     <%= form.label :about, "Sobre a empresa" %>
     <%= form.text_area :about, size: "70x5" %>
+  </div>
     
+  <div class="field">
     <%= form.label :address, "Endereço" %>
     <%= form.text_field :address %>
+  </div>
 
+  <div class="field">
     <%= form.label :cnpj, "CNPJ" %>
     <%= form.text_field :cnpj %>
+  </div>
 
+  <div class="field">
     <%= form.label :website, "Site" %>
     <%= form.text_field :website %>
+  </div>
 
+  <div class="field">
     <%= form.label :domain, "Domínio de e-mail dos funcionários" %>
     <%= form.text_field :domain %>
+  </div>
 
+  <div class="field">
     <%= form.label :logo, "Logo" %>
     <%= form.file_field :logo %>
+  </div>
 
+  <div class="actions">
     <%= form.submit "Salvar" %>
-  <% end %>
+  </div>
+
+<% end %>

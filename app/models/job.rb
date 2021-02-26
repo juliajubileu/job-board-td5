@@ -9,7 +9,7 @@ class Job < ApplicationRecord
            :expiration_date_cannot_be_in_the_past, 
            :spots_cannot_be_negative
 
-  enum status: { enabled: 0, disabled: 5 }
+  enum status: { enabled: 0, disabled: 5, expired: 10 }
 
   def remuneration_cannot_be_less_than_minimum_wage
     if

@@ -17,6 +17,7 @@ class JobsController < ApplicationController
 
         if @job.save
             flash[:notice] = 'Vaga publicada com sucesso'
+            @job.enabled!
             redirect_to @job
         else
             render :new
@@ -40,13 +41,13 @@ class JobsController < ApplicationController
     def disable
         @job = Job.find(params[:id])
         @job.disabled!
-        redirect_to @job.company
+        redirect_to @job
     end
 
     def enable
         @job = Job.find(params[:id])
         @job.enabled!
-        redirect_to @job.company
+        redirect_to @job
     end
 
 

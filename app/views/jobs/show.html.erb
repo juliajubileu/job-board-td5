@@ -29,16 +29,15 @@
   <dd><%= I18n.localize(@job.expiration_date) %></dd>
 </dl>
 
-<% unless recruiter_signed_in? || @job.candidates.include?(current_candidate) %>
-  <%= link_to "Candidate-se para esta vaga", new_job_application_path(@job) %>
-<% else @job.candidates.include?(current_candidate) %>
-  <%= link_to "Acompanhar candidatura" %>
+<% unless recruiter_signed_in? %>
+  <% if @job.candidates.include?(current_candidate) %>
+    <%= link_to "Acompanhar candidatura" %>
+  <% else %>
+    <%= link_to "Candidate-se para esta vaga", new_job_application_path(@job) %>
+  <% end %>
 <% end %>
 
-
 <% if current_recruiter&.company == @job.company %>
-  <h2> Painel do recrutador - <%= @job.company.name %> </h2>
-
   <%= link_to 'Editar vaga', edit_job_path %>
   <%= link_to 'Desativar vaga', disable_job_path(@job), method: :post unless @job.disabled? %>
   <%= link_to 'Ativar vaga', enable_job_path(@job), method: :post unless @job.enabled? %>

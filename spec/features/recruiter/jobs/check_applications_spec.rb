@@ -15,7 +15,7 @@ feature 'Recruiter checks incoming applications' do
       recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: 'tr4b4lh0', company: company)
       job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Ruby on Rails',
-                        expiration_date: '06/09/2021', spots_available: 4, company: company)
+                        expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
       candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                     email: 'maria@email.com.br', password: '234567')
       application = Application.create!(job: job, candidate: candidate, status: :pending)
@@ -23,7 +23,6 @@ feature 'Recruiter checks incoming applications' do
       login_as recruiter, scope: :recruiter
       visit root_path
       click_on recruiter.email
-      click_on 'Vagas publicadas'
       click_on job.title
       click_on 'Avaliar candidaturas'
 
@@ -54,6 +53,6 @@ feature 'Recruiter checks incoming applications' do
         click_on 'Ver vagas'
         click_on other_company_job.title
 
-        expect(page).not_to have_link('Ver candidaturas')
+        expect(page).not_to have_link('Avaliar candidaturas')
     end
 end

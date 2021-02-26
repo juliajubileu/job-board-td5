@@ -15,26 +15,43 @@
   <% end %>
 
 <%= form_with model: @job do |form| %>
+  <div class="field">
     <%= form.label :title, "Título" %>
     <%= form.text_field :title %>
+  </div>
     
+  <div class="field">
     <%= form.label :description, "Descrição" %>
     <%= form.text_area :description, size: "70x5" %>
-
+  </div>
+    
+  <div class="field">
     <%= form.label :requirements, "Requisitos obrigatórios" %>
     <%= form.text_area :requirements, size: "70x5" %>
-
+  </div>
+    
+  <div class="field">
     <%= form.label :level, "Nível do cargo" %>
     <%= form.text_field :level %>
+  </div>
 
+  <div class="field">
     <%= form.label :remuneration, "Oferta de remuneração" %>
     <%= form.text_field :remuneration %>
+    </div>
 
+  <div class="field">
     <%= form.label :spots_available, "Vagas disponíveis" %>
     <%= form.number_field :spots_available, in: 1..20 %>
-
+  </div>
+    
+  <div class="field">
     <%= form.label :expiration_date, "Data limite para envio de candidaturas" %>
     <%= form.text_field :expiration_date %>
+  </div>
 
+  <div class="actions">
     <%= form.submit "Salvar" %>
+  </div>
+
   <% end %>

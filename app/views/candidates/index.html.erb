@@ -1,12 +1,13 @@
-<h1><%= current_candidate.full_name %></h1>
+<h1> Painel do candidato - <%= current_candidate.full_name %></h1>
 
 <%= link_to 'Editar perfil' %>
-
-<h2>Minhas candidaturas: <%= current_candidate.applications.count %></h2>
-<% current_candidate.applications.each do |application| %>
-    <p><%= link_to application.job.title, application_path(application) %> - <%= application.job.company.name %></p>
-    <hr>
-<% end %>
-
 <%= link_to 'Encontrar vagas', jobs_path %>
 <%= link_to 'Voltar', root_path %>
+
+<h2>Minhas candidaturas: <%= current_candidate.applications.count %></h2>
+
+<% current_candidate.applications.each do |application| %>
+    <p><%= application.job.title %> - <%= application.job.company.name %> 
+    <%= link_to 'Acompanhar candidatura', application_path(application) %></p>
+    <hr>
+<% end %>

@@ -1,4 +1,4 @@
-<h1> Resultados da busca </h1>
+<h1> Resultados da busca: </h1>
 
 <h2>Empresas:</h2>
 <% if @companies.empty? %>
@@ -16,7 +16,7 @@
   <dl>
     <% @jobs.each do |job| %>
       <% unless job.disabled? %>
-          <dt><%= link_to job.title, job_path(job) %> - <%= job.company.name %></dt>
+          <dt><%= job.company.name %>: <%= link_to job.title, job_path(job) %></dt>
           <dd>Nível: <%= job.level %></dd>
           <hr>
       <% end %>

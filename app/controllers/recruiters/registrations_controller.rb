@@ -9,6 +9,7 @@ class Recruiters::RegistrationsController < Devise::RegistrationsController
       assign_company
       super
     else
+      #validate_corporate_domain
       redirect_to new_company_path
     end
   end
@@ -54,5 +55,11 @@ class Recruiters::RegistrationsController < Devise::RegistrationsController
     domain = params[:recruiter][:email].split('@').last
     company = Company.find_by(domain: domain)
     params[:recruiter][:company_id] = company.id
+  end
+
+  def validate_corporate_domain
+    #if PERSONAL_DOMAINS.any? {|domain| params[:recruiter][:email].end_with?(domain)}
+    #  errors.add(:email, 'Não é e-mail corporativo')
+    #end
   end
 end

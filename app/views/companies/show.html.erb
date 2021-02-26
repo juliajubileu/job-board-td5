@@ -11,7 +11,7 @@
   <dd><%= @company.website %></dd>
 </dl>
 
-<h2>Vagas publicadas</h2>
+<h2>Vagas disponíveis</h2>
 
 <% if @company.jobs.empty? %>
   <p>Nenhuma vaga publicada</p>
@@ -28,17 +28,8 @@
   <% end %>
 <% end %>
 
-
 <% if current_recruiter.company == @company %>
   <%= link_to 'Publicar vagas', new_job_path %>
-
-  <h3>Vagas desativadas: <%= @company.jobs.disabled.count %></h3>
-  <% @company.jobs.each do |job| %>
-    <% if job.disabled? %>
-      <p><%= job.title %> - <%= link_to 'Ver detalhes', job_path(job) %></p>
-      <hr>
-    <% end %>
-  <% end %>
 <% end %>
 
 <%= link_to 'Voltar', :back %>

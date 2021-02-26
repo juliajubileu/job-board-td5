@@ -10,23 +10,24 @@ feature 'Recruiter disables a job' do
 
     scenario 'successfully' do 
       company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
-                               cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
-                               domain: 'campuscode.com.br')
+                                cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
+                                domain: 'campuscode.com.br')
       recruiter = Recruiter.create!(email: 'rh@campuscode.com.br', password: '123456', 
                                     company: company)
       job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Ruby on Rails',
-                        expiration_date: '06/09/2021', spots_available: 4, company: company)
+                        expiration_date: '06/09/2021', spots_available: 4, company: company,
+                        status: :enabled)
 
       login_as recruiter, scope: :recruiter
       visit root_path
       click_on recruiter.email
-      click_on 'Vagas publicadas'
       click_on job.title
       click_on 'Desativar vaga'
 
       job.reload
-      expect(page).to have_content('Vagas desativadas: 1')
+      expect(page).to have_content('Vaga desativada')
+      expect(page).to have_link('Ativar vaga')
       expect(job).to be_disabled
     end
 
@@ -44,11 +45,9 @@ feature 'Recruiter disables a job' do
       login_as recruiter, scope: :recruiter
       visit root_path
       click_on recruiter.email
-      click_on 'Vagas publicadas'
-      click_on 'Ver detalhes'
-      click_on 'Ativar vaga'
       click_on job.title
-
+      click_on 'Ativar vaga'
+  
       job.reload
       expect(page).to have_link('Desativar vaga')
       expect(job).to be_enabled
