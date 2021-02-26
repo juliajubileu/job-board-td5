@@ -24,10 +24,10 @@ feature 'Recruiter rejects candidate' do
         click_on 'Enviar'
       end
 
-      application.reload
       expect(current_path).to eq(job_applications_path(job))
       expect(page).to have_content('Candidaturas rejeitadas: 1')
       expect(page).to have_content('Candidaturas pendentes: 0')
+      application.reload
       expect(application.rejected?).to be_truthy
     end
 
@@ -48,7 +48,7 @@ feature 'Recruiter rejects candidate' do
         click_on recruiter.email
         click_on job.title
         click_on 'Avaliar candidaturas'
-        click_on 'Enviar proposta'
+        click_on 'Declinar candidatura'
         within('form') do
             fill_in 'Motivo da reprovação', with: ''
             click_on 'Enviar'
@@ -69,7 +69,7 @@ feature 'Recruiter rejects candidate' do
                           expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
         candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
-        application = Application.create!(job: job, candidate: candidate, status: :approved)
+        application = Application.create!(job: job, candidate: candidate, status: :rejected)
   
         login_as recruiter, scope: :recruiter
         visit root_path

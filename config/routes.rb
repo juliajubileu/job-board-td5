@@ -9,8 +9,15 @@ Rails.application.routes.draw do
   resources :candidates, only: %i[index]
   resources :companies
   resources :jobs do
-    resources :applications, shallow: true
     post 'disable', on: :member
     post 'enable', on: :member
+
+    shallow do
+      resources :applications do
+        resources :rejections
+        #approvals
+          #answer
+      end
+    end
   end
 end

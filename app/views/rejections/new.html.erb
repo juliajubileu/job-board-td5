@@ -1,0 +1,24 @@
+<h1>Declinar candidatura</h1>
+
+<% if @rejection.errors.any? %>
+  <p>Não foi possível rejeitar candidatura</p>
+  <p>Confira os erros abaixo:</p>
+    <ul>
+      <% @rejection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul> 
+<% end %>
+
+<%= form_with model: [@application, @rejection] do |f|%>
+  <div class="field">
+    <%= f.label :motive, 'Motivo da reprovação' %>
+    <%= f.text_area :motive, size: "70x5" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
+
+

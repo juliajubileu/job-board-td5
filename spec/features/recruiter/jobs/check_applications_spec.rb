@@ -28,7 +28,7 @@ feature 'Recruiter checks incoming applications' do
 
       expect(current_path).to eq(job_applications_path(job))
       expect(page).to have_content('Maria Oliveira')
-      expect(page).to have_content('Pendente de avaliação')
+      expect(page).to have_content('Candidaturas pendentes: 1')
       expect(page).to have_link('Enviar proposta')
       expect(page).to have_link('Declinar candidatura')
     end

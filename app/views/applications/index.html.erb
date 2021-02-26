@@ -11,7 +11,7 @@
     <p><%= application.letter %></p>
 
     <%= link_to 'Enviar proposta' %>
-    <%= link_to 'Declinar candidatura' %>
+    <%= link_to 'Declinar candidatura', new_application_rejection_path(application) %>
     <hr>
   <% end %>
 <% end %>

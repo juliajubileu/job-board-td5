@@ -47,4 +47,6 @@ pt-BR:
         requirements: 'Requisitos obrigatórios'
         expiration_date: 'Data limite'
         spots_available: 'Vagas disponíveis'
+      rejection:
+        motive: 'Motivo'
         
