@@ -12,49 +12,16 @@
   </head>
 
   <body>
-    <nav>
-      <ul class="nav justify-content-end">
-        <% if recruiter_signed_in? %>
-          <li class="nav-item">
-            <div class="nav-link active">
-              <%= link_to current_recruiter.email, recruiters_path %>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="nav-link active">
-              <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete %>
-            </div>
-          </li>
-        <% elsif candidate_signed_in? %>
-          <li class="nav-item">
-            <div class="nav-link active">
-              <%= link_to current_candidate.email, candidates_path %>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="nav-link active">
-              <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <div class="nav-link active">
-              <%= link_to 'Acesso candidatos', new_candidate_session_path %>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="nav-link active">
-              <%= link_to 'Acesso recrutadores', new_recruiter_session_path %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
+    <header>
+      <%= render 'layouts/nav' %>
+    </header>
 
-    <%= yield %>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <main class="container-fluid">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      
+      <%= yield %>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   </body>

@@ -53,4 +53,6 @@ pt-BR:
         message: 'Mensagem'
         salary: 'Oferta de remuneração'
         starting_date: 'Data de início'
+      denial:
+        motive: 'Motivo'
         

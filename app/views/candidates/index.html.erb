@@ -4,22 +4,37 @@
 <%= link_to 'Encontrar vagas', jobs_path %>
 <%= link_to 'Voltar', root_path %>
 
+<% @applications.each do |application| %>
+  <% if application.approved? && application.offer.accepted? %>
+  <p>Parabéns pela contratação!</p>
+  <% end %>
+<% end %>
+
 <h2>Ofertas recebidas: <%= @applications.approved.count %></h2>
 
 <% @applications.each do |application| %>
-  <% if application.approved? %>
+  <% if application.approved? && application.offer.pending? %>
     <p><%= application.job.title %> - <%= application.job.company.name %> 
     <%= link_to 'Avaliar oferta', offer_path(application) %></p>
     <hr>
   <% end %>
 <% end %>
 
-<h2>Minhas candidaturas: <%= @applications.count %></h2>
+<h2>Minhas candidaturas: <%= @applications.pending.count %></h2>
 
 <% @applications.each do |application| %>
   <% if application.pending? %>
     <p><%= application.job.title %> - <%= application.job.company.name %> 
     <%= link_to 'Acompanhar candidatura', application_path(application) %></p>
+    <hr>
+  <% end %>
+<% end %>
+
+<h2>Candidaturas rejeitadas: <%= @applications.rejected.count %></h2>
+
+<% @applications.each do |application| %>
+  <% if application.rejected? %>
+    <p><%= application.job.title %> - <%= application.job.company.name %> 
     <hr>
   <% end %>
 <% end %>

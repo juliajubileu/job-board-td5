@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     shallow do
       resources :applications do
         resources :rejections
-        resources :offers
-          #answer
+        resources :offers do
+          post 'accept', on: :member
+          resources :denials
+        end
       end
     end
     post 'disable', on: :member

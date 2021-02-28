@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_222518) do
+ActiveRecord::Schema.define(version: 2021_02_28_200257) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -79,6 +79,14 @@ ActiveRecord::Schema.define(version: 2021_02_26_222518) do
     t.text "about"
   end
 
+  create_table "denials", force: :cascade do |t|
+    t.text "motive"
+    t.integer "offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_id"], name: "index_denials_on_offer_id"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -101,6 +109,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_222518) do
     t.integer "application_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status"
     t.index ["application_id"], name: "index_offers_on_application_id"
   end
 
@@ -129,6 +138,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_222518) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applications", "candidates"
   add_foreign_key "applications", "jobs"
+  add_foreign_key "denials", "offers"
   add_foreign_key "jobs", "companies"
   add_foreign_key "offers", "applications"
   add_foreign_key "recruiters", "companies"

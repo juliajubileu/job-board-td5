@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
-  before_action :authenticate_recruiter!, except: %i[show]
+  before_action :authenticate_candidate!, only: [:show, :accept]
+  before_action :authenticate_recruiter!, only: [:new, :create]
 
     def show
       @offer = Offer.find(params[:id])
@@ -22,10 +23,17 @@ class OffersController < ApplicationController
       if @offer.save
         flash[:notice] = 'Oferta enviada'
         @application.approved!
+        @offer.pending!
         redirect_to job_applications_path(@job)
       else
         render :new
       end
+    end
+
+    def accept
+      @offer = Offer.find(params[:id])
+      @offer.accepted!
+      redirect_to candidates_path
     end
 
     private

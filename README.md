@@ -21,9 +21,9 @@ Realizado como projeto final do [TreinaDev](https://www.treinadev.com.br/home), 
 - [x] Visitante decide se inscrever para uma vaga
 - [x] Visitante cria sua conta e preenche um perfil para confirmar sua candidatura
 - [x] Colaborador da empresa visualiza as candidaturas recebidas
-- [ ] Colaborador da empresa faz uma proposta para um candidato
-- [ ] Candidato (agora autenticado) visualiza as propostas recebidas
-- [ ] Colaborador ou candidato podem aceitar/reprovar uma candidatura
+- [x] Colaborador da empresa faz uma proposta para um candidato
+- [x] Candidato (agora autenticado) visualiza as propostas recebidas
+- [x] Colaborador ou candidato podem aceitar/reprovar uma candidatura
 
 ## Gems utilizadas
 

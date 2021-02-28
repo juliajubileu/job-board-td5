@@ -59,6 +59,7 @@ feature 'Candidate views applications' do
       candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                     email: 'maria@email.com.br', password: '234567')
       application = Application.create!(job: job, candidate: candidate, status: :approved)
+      offer = Offer.create(message: 'Parabéns', salary: 2500, starting_date: '05/04/2021', application: application, status: :pending)
 
       login_as candidate, scope: :candidate
       visit root_url

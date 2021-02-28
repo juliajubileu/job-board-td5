@@ -1,9 +1,12 @@
 class Offer < ApplicationRecord
   belongs_to :application
+  has_one :denial
 
   validates :message, :salary, :starting_date, presence: true
 
   validate :salary_cannot_be_less_than_minimum_wage, :starting_date_cannot_be_in_the_past
+
+  enum status: { pending: 0, accepted: 3, denied: 5 }
 
   def salary_cannot_be_less_than_minimum_wage
     if

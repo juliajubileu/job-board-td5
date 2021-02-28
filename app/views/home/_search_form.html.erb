@@ -1,0 +1,5 @@
+<%= form_with url: search_path, method: :get do %>
+  <%= label_tag :q, 'Busque um cargo ou empresa:' %>
+  <%= text_field_tag :q %>
+  <%= submit_tag 'Pesquisar', :class => "btn btn-outline-secondary btn-md" %>
+<% end %>

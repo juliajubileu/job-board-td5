@@ -1,0 +1,22 @@
+<h1>Recusar oferta</h1>
+
+<% if @denial.errors.any? %>
+  <p>Não foi possível recusar oferta</p>
+  <p>Confira os erros abaixo:</p>
+    <ul>
+      <% @denial.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul> 
+<% end %>
+
+<%= form_with model: [@offer, @denial] do |f|%>
+  <div class="field">
+    <%= f.label :motive, 'Conte o motivo para recusar a oferta' %>
+    <%= f.text_field :motive, size: "70x5" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
