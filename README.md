@@ -23,11 +23,7 @@ Realizado como projeto final do [TreinaDev](https://www.treinadev.com.br/home), 
 - [x] Colaborador da empresa visualiza as candidaturas recebidas
 - [x] Colaborador da empresa faz uma proposta para um candidato
 - [x] Candidato (agora autenticado) visualiza as propostas recebidas
-<<<<<<< HEAD
 - [x] Colaborador ou candidato podem aceitar/reprovar uma candidatura
-=======
-- [ ] Colaborador ou candidato podem aceitar/reprovar uma candidatura
->>>>>>> c816206bd19f7e28c33039790fec7e894140bd68
 
 ## Gems utilizadas
 
