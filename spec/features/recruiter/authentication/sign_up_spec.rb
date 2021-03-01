@@ -86,7 +86,7 @@ feature 'Recruiter signs up' do
         
         expect(page).to have_content('Não foi possível salvar recrutador')
         expect(page).to have_content('E-mail não é válido')
-        expect(page).not_to have_content('rh@treinadev.com.br')
+        expect(current_path).not_to eq(new_company_path)
         expect(page).not_to have_link('Sair')
     end
 
@@ -109,6 +109,7 @@ feature 'Recruiter signs up' do
         expect(page).to have_content('Não foi possível salvar recrutador')
         expect(page).to have_content('já está em uso')
         expect(page).not_to have_content('rh@treinadev.com.br')
+        expect(current_path).not_to eq(new_company_path)
         expect(page).not_to have_link('Sair')
     end
 
@@ -124,8 +125,8 @@ feature 'Recruiter signs up' do
         end
 
         expect(page).to have_content('Não foi possível salvar recrutador')
-        expect(page).to have_content('Não é e-mail corporativo')
-        expect(page).not_to have_content('julia@gmail.com')
+        expect(page).to have_content('E-mail deve ser corporativo')
+        expect(current_path).not_to eq(new_company_path)
         expect(page).not_to have_link('Sair')
     end
 end

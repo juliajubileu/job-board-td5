@@ -7,8 +7,11 @@ RSpec.describe Recruiter, type: :model do
   
   describe 'validations' do
     it { should validate_presence_of(:email) }
+
+    it 'should not be valid with personal email' do
+        # Definindo se método estará no model ou no controller
+    end
   end
 
   # roles admin/member - Ainda não implementado
-  # email cant be personal - Definindo se método vai permanecer no model
 end

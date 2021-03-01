@@ -14,24 +14,4 @@ RSpec.describe Job, type: :model do
         it { should validate_presence_of(:expiration_date) }
         it { should validate_presence_of(:spots_available) } 
     end
-
-    describe 'valid?' do
-        context 'remuneration' do
-            it 'should be higher than minimum wage' do
-
-            end
-        end
-
-        context 'expiration date' do
-            it 'should be in the future' do
-
-            end
-        end
-
-        context 'spots available' do
-            it 'should be positive' do
-                
-            end
-        end
-    end
 end

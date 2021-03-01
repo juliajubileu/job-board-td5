@@ -9,7 +9,7 @@ class Job < ApplicationRecord
            :expiration_date_cannot_be_in_the_past, 
            :spots_cannot_be_negative
 
-  enum status: { enabled: 0, disabled: 5, expired: 10 }
+  enum status: { enabled: 0, disabled: 5 }
 
   def remuneration_cannot_be_less_than_minimum_wage
     if
@@ -29,6 +29,12 @@ class Job < ApplicationRecord
     if
     spots_available.present? && spots_available < 1
     errors.add(:spots_available, 'deve ser número positivo')
+    end
+  end
+
+  def spots_unavailable
+    if self.applications.offers.accepted.count >= self.spots_available
+      self.status = disabled
     end
   end
 end
