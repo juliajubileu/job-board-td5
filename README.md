@@ -35,7 +35,10 @@ Realizado como projeto final do [TreinaDev](https://www.treinadev.com.br/home), 
 
 ## Como executar o projeto
 
-Para executar esse projeto, você deve instalar e configurar a linguagem Ruby versão 2.7.2 e o framework Rails versão 6.1.2 em seu computador. Em seguida, siga os passos abaixo: 
+Para executar esse projeto, você deve instalar a linguagem [Ruby v2.7.2](https://www.ruby-lang.org/pt/) e o framework [Rails v6.1.2](https://guides.rubyonrails.org/) em seu computador. Outros pré-requisitos que devem ser instalados são: [Git](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git), [Yarn v1.22.10](https://classic.yarnpkg.com/en/docs/install#mac-stable) e [Node.js v14.15.0](https://nodejs.org/pt-br/download/package-manager/).
+
+
+Em seguida, siga os passos abaixo: 
 
 Clone este repositório
 
@@ -49,19 +52,17 @@ Abra o diretório pelo terminal
 cd  job-board-td5
 ```
 
-Instale as gems rodando o comando Bundle install
+Rode o script bin setup para configurar o projeto
 
 ```bash
-bundle install
+bin/setup
 ```
 
 Gere o banco de dados 
 
 ```bash
-rails db:create
-```
-```bash
 rails db:migrate
+rails db:seed
 ```
 
 ### Rodando os testes
