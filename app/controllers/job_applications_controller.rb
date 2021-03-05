@@ -1,9 +1,10 @@
 class JobApplicationsController < ApplicationController
-  before_action :authenticate_candidate!, except: %i[index]
-  before_action :authenticate_recruiter!, only: %i[index]
+  before_action :set_job, only: [:index, :new, :create]
+  before_action :authenticate_candidate!, except: [:index]
+  before_action :authenticate_recruiter!, only: [:index]
 
   def index
-    @job = Job.find(params[:job_id])
+
   end
 
   def show
@@ -12,17 +13,12 @@ class JobApplicationsController < ApplicationController
   end
 
   def new
-    @job = Job.find(params[:job_id])
     @job_application = JobApplication.new
   end
 
   def create
-    @job = Job.find(params[:job_id])
-    @job_application = JobApplication.new
     @candidate = Candidate.find(current_candidate.id)
-
-    @job_application.job = @job
-    @job_application.candidate = @candidate
+    @job_application = JobApplication.new(job: @job, candidate: @candidate)
 
     if @job_application.save
       flash[:notice] = 'Candidatura realizada com sucesso'
@@ -39,5 +35,11 @@ class JobApplicationsController < ApplicationController
 
     flash[:notice] = 'Você não está mais concorrendo a esta vaga!'
     redirect_to candidates_path
+  end
+
+  private
+
+  def set_job
+    @job = Job.find(params[:job_id])
   end
 end

@@ -1,44 +1,52 @@
 class OffersController < ApplicationController
-  before_action :authenticate_candidate!, only: [:show, :accept]
-  before_action :authenticate_recruiter!, only: [:new, :create]
+  before_action :set_offer, :authenticate_candidate!, only: [:show, :accept]
+  before_action :set_job_application, :authenticate_recruiter!, only: [:new, :create]
 
-    def show
-      @offer = Offer.find(params[:id])
-      @job_application = @offer.job_application
-      @job = @job_application.job
-      @company = @job.company
+  def show
+    @job_application = @offer.job_application
+    define_job_attribute
+    @company = @job.company
+  end
+
+  def new
+    @offer = Offer.new
+  end
+
+  def create
+    @offer = Offer.new(offer_params)
+    define_job_attribute
+    @offer.job_application = @job_application
+
+    if @offer.save
+      flash[:notice] = 'Oferta enviada'
+      @job_application.approved!
+      @offer.pending!
+      redirect_to job_job_applications_path(@job)
+    else
+      render :new
     end
+  end
 
-    def new
-      @job_application = JobApplication.find(params[:job_application_id])
-      @offer = Offer.new
-    end
+  def accept
+    @offer.accepted!
+    redirect_to candidates_path
+  end
 
-    def create
-      @job_application = JobApplication.find(params[:job_application_id])
-      @job = @job_application.job
-      @offer = Offer.new(offer_params)
-      @offer.job_application = @job_application
+  private
 
-      if @offer.save
-        flash[:notice] = 'Oferta enviada'
-        @job_application.approved!
-        @offer.pending!
-        redirect_to job_job_applications_path(@job)
-      else
-        render :new
-      end
-    end
+  def offer_params
+    params.require(:offer).permit(:message, :salary, :starting_date)
+  end
 
-    def accept
-      @offer = Offer.find(params[:id])
-      @offer.accepted!
-      redirect_to candidates_path
-    end
+  def set_offer
+    @offer = Offer.find(params[:id])
+  end
 
-    private
+  def set_job_application
+    @job_application = JobApplication.find(params[:job_application_id])
+  end
 
-    def offer_params
-      params.require(:offer).permit(:message, :salary, :starting_date)
-    end
+  def define_job_attribute
+    @job = @job_application.job
+  end
 end

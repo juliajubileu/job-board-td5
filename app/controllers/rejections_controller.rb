@@ -1,18 +1,14 @@
 class RejectionsController < ApplicationController
-    def index
-
-    end
+  before_action :authenticate_recruiter!, :set_job_application
 
     def new
-      @job_application = JobApplication.find(params[:job_application_id])
       @rejection = Rejection.new
     end
 
     def create
-      @job_application = JobApplication.find(params[:job_application_id])
-      @job = @job_application.job
       @rejection = Rejection.new(rejection_params)
       @rejection.job_application = @job_application
+      @job = @job_application.job
 
       if @rejection.save
         flash[:notice] = 'Candidatura rejeitada'
@@ -27,5 +23,9 @@ class RejectionsController < ApplicationController
 
     def rejection_params
       params.require(:rejection).permit(:motive)
+    end
+
+    def set_job_application
+      @job_application = JobApplication.find(params[:job_application_id])
     end
 end

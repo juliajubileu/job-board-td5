@@ -14,5 +14,5 @@
   <dd><%= @offer.starting_date %></dd>
 </dl>
 
-<%= link_to 'Aceitar oferta', accept_offer_path, method: :post %>
+<%= link_to 'Aceitar oferta', accept_offer_path(@offer), method: :post %>
 <%= link_to 'Declinar oferta', new_offer_denial_path(@offer)  %>
