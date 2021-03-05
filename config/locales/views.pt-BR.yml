@@ -23,7 +23,7 @@ pt-BR:
       name: 'Nome'
       cnpj: 'CNPJ'
 
-  applications:
+  job_applications:
       index:
         pending: 'Pendente de avaliação'
         approved: 'Candidatura aprovada!'

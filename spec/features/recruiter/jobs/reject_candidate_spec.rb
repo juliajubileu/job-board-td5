@@ -11,7 +11,7 @@ feature 'Recruiter rejects candidate' do
                         expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
       candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                     email: 'maria@email.com.br', password: '234567')
-      application = Application.create!(job: job, candidate: candidate, status: :pending)
+      application = JobApplication.create!(job: job, candidate: candidate, status: :pending)
 
       login_as recruiter, scope: :recruiter
       visit root_path
@@ -24,7 +24,7 @@ feature 'Recruiter rejects candidate' do
         click_on 'Enviar'
       end
 
-      expect(current_path).to eq(job_applications_path(job))
+      expect(current_path).to eq(job_job_applications_path(job))
       expect(page).to have_content('Candidaturas rejeitadas: 1')
       expect(page).to have_content('Candidaturas pendentes: 0')
       application.reload
@@ -41,7 +41,7 @@ feature 'Recruiter rejects candidate' do
                               expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
         candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                           email: 'maria@email.com.br', password: '234567')
-        application = Application.create!(job: job, candidate: candidate, status: :pending)
+        application = JobApplication.create!(job: job, candidate: candidate, status: :pending)
       
         login_as recruiter, scope: :recruiter
         visit root_path
@@ -69,7 +69,7 @@ feature 'Recruiter rejects candidate' do
                           expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
         candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
-        application = Application.create!(job: job, candidate: candidate, status: :rejected)
+        application = JobApplication.create!(job: job, candidate: candidate, status: :rejected)
   
         login_as recruiter, scope: :recruiter
         visit root_path

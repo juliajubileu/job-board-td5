@@ -4,27 +4,27 @@ class OffersController < ApplicationController
 
     def show
       @offer = Offer.find(params[:id])
-      @application = @offer.application
-      @job = @application.job
+      @job_application = @offer.job_application
+      @job = @job_application.job
       @company = @job.company
     end
 
     def new
-      @application = Application.find(params[:application_id])
+      @job_application = JobApplication.find(params[:job_application_id])
       @offer = Offer.new
     end
 
     def create
-      @application = Application.find(params[:application_id])
-      @job = @application.job
+      @job_application = JobApplication.find(params[:job_application_id])
+      @job = @job_application.job
       @offer = Offer.new(offer_params)
-      @offer.application = @application
+      @offer.job_application = @job_application
 
       if @offer.save
         flash[:notice] = 'Oferta enviada'
-        @application.approved!
+        @job_application.approved!
         @offer.pending!
-        redirect_to job_applications_path(@job)
+        redirect_to job_job_applications_path(@job)
       else
         render :new
       end

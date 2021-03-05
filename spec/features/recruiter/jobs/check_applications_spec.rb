@@ -18,7 +18,7 @@ feature 'Recruiter checks incoming applications' do
                         expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
       candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                     email: 'maria@email.com.br', password: '234567')
-      application = Application.create!(job: job, candidate: candidate, status: :pending)
+      application = JobApplication.create!(job: job, candidate: candidate, status: :pending)
 
       login_as recruiter, scope: :recruiter
       visit root_path
@@ -26,7 +26,7 @@ feature 'Recruiter checks incoming applications' do
       click_on job.title
       click_on 'Avaliar candidaturas'
 
-      expect(current_path).to eq(job_applications_path(job))
+      expect(current_path).to eq(job_job_applications_path(job))
       expect(page).to have_content('Maria Oliveira')
       expect(page).to have_content('Candidaturas pendentes: 1')
       expect(page).to have_link('Enviar proposta')
@@ -46,7 +46,7 @@ feature 'Recruiter checks incoming applications' do
                                         expiration_date: '06/09/2021', spots_available: 4, company: other_company)
         candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
-        application = Application.create!(job: other_company_job, candidate: candidate)
+        application = JobApplication.create!(job: other_company_job, candidate: candidate)
 
         login_as recruiter, scope: :recruiter
         visit root_path

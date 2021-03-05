@@ -10,7 +10,7 @@
     </ul> 
 <% end %>
 
-<%= form_with model: [@application, @rejection] do |f|%>
+<%= form_with model: [@job_application, @rejection] do |f|%>
   <div class="field">
     <%= f.label :motive, 'Motivo da reprovação' %>
     <%= f.text_area :motive, size: "70x5" %>

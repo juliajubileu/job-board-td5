@@ -2,6 +2,6 @@ class CandidatesController < ApplicationController
     before_action :authenticate_candidate!
     
     def index
-        @applications = current_candidate.applications
+        @job_applications = current_candidate.job_applications
     end
 end

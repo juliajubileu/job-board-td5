@@ -10,7 +10,7 @@
     </ul> 
 <% end %>
 
-<%= form_with model: [@application, @offer] do |f|%>
+<%= form_with model: [@job_application, @offer] do |f|%>
   <div class="field">
     <%= f.label :message, 'Mensagem de aprovação' %>
     <%= f.text_area :message, size: "70x5" %>

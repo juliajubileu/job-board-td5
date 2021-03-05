@@ -1,7 +1,7 @@
 class Job < ApplicationRecord
   belongs_to :company
-  has_many :applications
-  has_many :candidates, through: :applications 
+  has_many :job_applications
+  has_many :candidates, through: :job_applications 
 
   validates :title, :description, :remuneration, :level, :requirements,
             :expiration_date, :spots_available, presence: true

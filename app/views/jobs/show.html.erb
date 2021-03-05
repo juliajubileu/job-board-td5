@@ -33,7 +33,7 @@
   <% if @job.candidates.include?(current_candidate) %>
     <%= link_to "Acompanhar candidatura" %>
   <% else %>
-    <%= link_to "Candidate-se para esta vaga", new_job_application_path(@job) %>
+    <%= link_to "Candidate-se para esta vaga", new_job_job_application_path(@job) %>
   <% end %>
 <% end %>
 
@@ -41,7 +41,7 @@
   <%= link_to 'Editar vaga', edit_job_path %>
   <%= link_to 'Desativar vaga', disable_job_path(@job), method: :post unless @job.disabled? %>
   <%= link_to 'Ativar vaga', enable_job_path(@job), method: :post unless @job.enabled? %>
-  <%= link_to 'Avaliar candidaturas', job_applications_path(@job) %>
+  <%= link_to 'Avaliar candidaturas', job_job_applications_path(@job) %>
 <% end %>
 
 <%= link_to 'Voltar', :back %>

@@ -1,6 +1,6 @@
 class Candidate < ApplicationRecord
-  has_many :applications
-  has_many :jobs, through: :applications
+  has_many :job_applications
+  has_many :jobs, through: :job_applications
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

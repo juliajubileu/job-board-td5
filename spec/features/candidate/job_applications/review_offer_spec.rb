@@ -10,8 +10,8 @@ feature 'Candidate reviews offers' do
                            expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
         candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
-        application = Application.create!(job: job, candidate: candidate, status: :approved)
-        offer = Offer.create!(message: 'Parabéns', salary: 2500, starting_date: '05/04/2021', application: application, status: :pending)
+        application = JobApplication.create!(job: job, candidate: candidate, status: :approved)
+        offer = Offer.create!(message: 'Parabéns', salary: 2500, starting_date: '05/04/2021', job_application: application, status: :pending)
 
         login_as candidate, scope: :candidate
         visit root_url
@@ -31,8 +31,8 @@ feature 'Candidate reviews offers' do
                            expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
         candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
-        application = Application.create!(job: job, candidate: candidate, status: :approved)
-        offer = Offer.create!(message: 'Parabéns', salary: 2500, starting_date: '05/04/2021', application: application, status: :pending)
+        application = JobApplication.create!(job: job, candidate: candidate, status: :approved)
+        offer = Offer.create!(message: 'Parabéns', salary: 2500, starting_date: '05/04/2021', job_application: application, status: :pending)
 
         login_as candidate, scope: :candidate
         visit root_url
@@ -57,8 +57,8 @@ feature 'Candidate reviews offers' do
                           expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
         candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
-        application = Application.create!(job: job, candidate: candidate, status: :approved)
-        offer = Offer.create!(message: 'Parabéns', salary: 2500, starting_date: '05/04/2021', application: application, status: :pending)
+        application = JobApplication.create!(job: job, candidate: candidate, status: :approved)
+        offer = Offer.create!(message: 'Parabéns', salary: 2500, starting_date: '05/04/2021', job_application: application, status: :pending)
 
         login_as candidate, scope: :candidate
         visit root_url
@@ -83,8 +83,8 @@ feature 'Candidate reviews offers' do
                           expiration_date: '06/09/2021', spots_available: 4, company: company, status: :enabled)
         candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                       email: 'maria@email.com.br', password: '234567')
-        application = Application.create!(job: job, candidate: candidate, status: :approved)
-        offer = Offer.create!(message: 'Parabéns', salary: 2500, starting_date: '05/04/2021', application: application, status: :pending)
+        application = JobApplication.create!(job: job, candidate: candidate, status: :approved)
+        offer = Offer.create!(message: 'Parabéns', salary: 2500, starting_date: '05/04/2021', job_application: application, status: :pending)
 
         login_as candidate, scope: :candidate
         visit root_url

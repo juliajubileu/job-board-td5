@@ -50,7 +50,7 @@ feature 'Candidate applies for job' do
                         expiration_date: '06/09/2021', spots_available: 4, company: company)
       candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata',
                                     email: 'maria@email.com.br', password: '234567')
-      application = Application.create!(job: job, candidate: candidate)
+      application = JobApplication.create!(job: job, candidate: candidate)
 
       login_as candidate, scope: :candidate
       visit root_url

@@ -15,7 +15,7 @@
   <dd><%= number_to_currency(@job.remuneration) %></dd>
 </dl>
 
-<%= form_with model: [@job, @application] do |f|%>
+<%= form_with model: [@job, @job_application] do |f|%>
   <div class="field">
     <%= f.label :letter, 'Escreva uma breve carta de apresentação'%>
     <%= f.text_area :letter, size: "70x5" %>

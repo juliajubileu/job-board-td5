@@ -4,16 +4,16 @@
 <%= link_to 'Encontrar vagas', jobs_path %>
 <%= link_to 'Voltar', root_path %>
 
-<% @applications.each do |application| %>
+<% @job_applications.each do |application| %>
   <% if application.approved? && application.offer.accepted? %>
     <h2>Parabéns pela contratação!</h2>
     <p>Em breve a empresa entrará em contato com você para informar os próximos passos.</p>
   <% end %>
 <% end %>
 
-<h2>Ofertas recebidas: <%= @applications.approved.count %></h2>
+<h2>Ofertas recebidas: <%= @job_applications.approved.count %></h2>
 
-<% @applications.each do |application| %>
+<% @job_applications.each do |application| %>
   <% if application.approved? && application.offer.pending? %>
     <p><%= application.job.title %> - <%= application.job.company.name %> 
     <%= link_to 'Avaliar oferta', offer_path(application) %></p>
@@ -21,19 +21,19 @@
   <% end %>
 <% end %>
 
-<h2>Minhas candidaturas: <%= @applications.pending.count %></h2>
+<h2>Minhas candidaturas: <%= @job_applications.pending.count %></h2>
 
-<% @applications.each do |application| %>
+<% @job_applications.each do |application| %>
   <% if application.pending? %>
     <p><%= application.job.title %> - <%= application.job.company.name %> 
-    <%= link_to 'Acompanhar candidatura', application_path(application) %></p>
+    <%= link_to 'Acompanhar candidatura', job_application_path(application) %></p>
     <hr>
   <% end %>
 <% end %>
 
-<h2>Candidaturas rejeitadas: <%= @applications.rejected.count %></h2>
+<h2>Candidaturas rejeitadas: <%= @job_applications.rejected.count %></h2>
 
-<% @applications.each do |application| %>
+<% @job_applications.each do |application| %>
   <% if application.rejected? %>
     <p><%= application.job.title %> - <%= application.job.company.name %> 
     <hr>

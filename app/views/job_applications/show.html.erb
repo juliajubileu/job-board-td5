@@ -1,0 +1,10 @@
+<h1>Acompanhe sua candidatura</h1>
+
+<%= @job.title %>, <%= @job.company.name %>
+<%= @job.description %>
+<%= @job.remuneration %>
+<%= @job_application.letter %>
+<%= @job_application.created_at %>
+<%= @job_application.status %>
+
+<%= link_to 'Retirar candidatura', job_application_path(@job_application), method: :delete %>

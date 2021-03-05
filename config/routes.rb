@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :companies
   resources :jobs do
     shallow do
-      resources :applications do
+      resources :job_applications do
         resources :rejections
         resources :offers do
           post 'accept', on: :member

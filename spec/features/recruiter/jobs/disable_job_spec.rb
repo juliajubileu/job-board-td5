@@ -82,14 +82,14 @@ feature 'Recruiter disables a job' do
                         status: :enabled)
       first_candidate = Candidate.create!(full_name: 'Maria Oliveira', cpf: '12312312312',  bio: 'candidata 1',
                                     email: 'maria@email.com.br', password: '234567')
-      first_application = Application.create!(job: job, candidate: first_candidate, status: :approved)
+      first_application = JobApplication.create!(job: job, candidate: first_candidate, status: :approved)
       first_offer = Offer.create!(message: 'parabéns', salary: 2200, starting_date: '23/03/2021', 
-                                  application: first_application, status: :accepted)
+                                  job_application: first_application, status: :accepted)
       second_candidate = Candidate.create!(full_name: 'Mariana Ferreira', cpf: '12312314562',  bio: 'candidata 2',
                                   email: 'mariana@email.com.br', password: '234547')
-      second_application = Application.create!(job: job, candidate: second_candidate, status: :approved)
+      second_application = JobApplication.create!(job: job, candidate: second_candidate, status: :approved)
       second_offer = Offer.create!(message: 'parabéns', salary: 2200, starting_date: '23/03/2021', 
-                                   application: second_application, status: :accepted)
+                                   job_application: second_application, status: :accepted)
 
       visit root_path
       click_on 'Ver vagas'

@@ -1,5 +1,5 @@
 class Offer < ApplicationRecord
-  belongs_to :application
+  belongs_to :job_application
   has_one :denial
 
   validates :message, :salary, :starting_date, presence: true

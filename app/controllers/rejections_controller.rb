@@ -4,20 +4,20 @@ class RejectionsController < ApplicationController
     end
 
     def new
-      @application = Application.find(params[:application_id])
+      @job_application = JobApplication.find(params[:job_application_id])
       @rejection = Rejection.new
     end
 
     def create
-      @application = Application.find(params[:application_id])
-      @job = @application.job
+      @job_application = JobApplication.find(params[:job_application_id])
+      @job = @job_application.job
       @rejection = Rejection.new(rejection_params)
-      @rejection.application = @application
+      @rejection.job_application = @job_application
 
       if @rejection.save
         flash[:notice] = 'Candidatura rejeitada'
-        @application.rejected!
-        redirect_to job_applications_path(@job)
+        @job_application.rejected!
+        redirect_to job_job_applications_path(@job)
       else
         render :new
       end

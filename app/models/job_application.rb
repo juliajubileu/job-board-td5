@@ -1,4 +1,4 @@
-class Application < ApplicationRecord
+class JobApplication < ApplicationRecord
   belongs_to :job
   belongs_to :candidate
   has_one :rejection
