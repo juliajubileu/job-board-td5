@@ -1,5 +1,5 @@
 class RejectionsController < ApplicationController
-    def show
+    def index
 
     end
 
