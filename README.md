@@ -83,6 +83,15 @@ rails server
 
 Em seguida abra seu navegador e digite `localhost:3000`
 
+## Navegação
+
+Para acessar páginas que requerem autenticação, utilize as contas abaixo: 
+
+| Papel | E-mail | Senha | 
+| --- | --- | --- |
+| Candidata | carol@email.com.br | 654321 |
+| Recrutador | rh@techlab.com.br | 123456 |
+
 
 ## Status
 Projeto em desenvolvimento. Mais detalhes sobre o processo [aqui](https://www.notion.so/Projeto-2-Balc-o-de-Empregos-4dbe791ce3224d80bb1bf56ca07e23a0)! :blush:	
