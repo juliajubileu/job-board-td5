@@ -15,7 +15,6 @@ class Recruiter < ApplicationRecord
     if PERSONAL_DOMAINS.include?(recruiter_domain)
       errors.add(:email, 'deve ser corporativo.')
     end
-
   end
 
   def find_company

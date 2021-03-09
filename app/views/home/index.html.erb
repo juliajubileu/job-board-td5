@@ -1,16 +1,26 @@
 <div class="container">
   <div class="row">
-      <div class="col">
-      <h1>Tech Jobs</h1>
-      <p>Encontre vagas de trabalho em tecnologia!</p>
-      <%= link_to 'Ver vagas', jobs_path, :class => "btn btn-outline-secondary btn-md" %>
-      <%= link_to 'Ver empresas', companies_path, :class => "btn btn-outline-secondary btn-md" %>
-      </div>
+    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+      <h1 class="display=1 fw-light">Encontre vagas <br> de trabalho <br> em tecnologia!</h1>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <%= image_tag("home_image.png", :class => "img-fluid", :alt => "Mulher entregando currículo") %>
+    </div>
   </div>
 
-  <div class="row">
-      <div class="col">
-        <%= render 'search_form' %>    
-      </div>
+  <div class="row mt-5">
+    <div class="col-12 d-flex justify-content-center">
+      <%= render 'search_form' %> 
+    </div> 
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-6 d-flex justify-content-end">
+      <%= link_to 'Ver vagas', jobs_path, :class => "btn btn-outline-secondary btn-md" %>
+    </div>
+    <div class="col-6 d-flex justify-content-start">
+      <%= link_to 'Ver empresas', companies_path, :class => "btn btn-outline-secondary btn-md" %>
+    </div>
   </div>
 </div>
