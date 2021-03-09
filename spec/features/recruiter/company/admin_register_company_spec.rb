@@ -12,7 +12,7 @@ feature 'Recruiter registers company info' do
           click_on 'Salvar'
         end
 
-        expect(current_path).to eq(new_company_path)
+        expect(current_path).to eq(edit_company_path(Company.last.id))
     end
 
     scenario 'successfully' do
@@ -27,17 +27,11 @@ feature 'Recruiter registers company info' do
         end
         within('form') do 
           fill_in 'Nome', with: 'Campus Code'
+          fill_in 'Sobre a empresa', with: 'Treinamentos intensivos em programação'
           fill_in 'Endereço', with: 'Alameda Santos, 1293'
           fill_in 'CNPJ', with: '11.222.333/0000-44'
           fill_in 'Site', with: 'www.campuscode.com.br'
-          fill_in 'Domínio de e-mail dos funcionários', with: 'campuscode.com.br'
           attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
-          click_on 'Salvar'
-        end
-        within('form') do
-          fill_in 'E-mail', with: 'rh@campuscode.com.br'
-          fill_in 'Senha', with: 'tr4b4lh0'
-          fill_in 'Confirme a senha', with: 'tr4b4lh0'
           click_on 'Salvar'
         end
 
@@ -58,15 +52,15 @@ feature 'Recruiter registers company info' do
           end
         within('form') do 
             fill_in 'Nome', with: ''
+            fill_in 'Sobre a empresa', with: ''
             fill_in 'Endereço', with: ''
             fill_in 'CNPJ', with: ''
             fill_in 'Site', with: ''
-            fill_in 'Domínio de e-mail dos funcionários', with: ''
             attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
             click_on 'Salvar'
         end
 
-        expect(page).to have_content('Não foi possível registrar a empresa')
+        expect(page).to have_content('Não foi possível salvar as informações da empresa')
         expect(page).to have_content('Nome não pode ficar em branco')
         expect(page).to have_content('Endereço não pode ficar em branco')
         expect(page).to have_content('CNPJ não pode ficar em branco')
@@ -91,15 +85,14 @@ feature 'Recruiter registers company info' do
           end
         within('form') do 
           fill_in 'Nome', with: 'Campus Code'
+          fill_in 'Sobre a empresa', with: 'Treinamentos intensivos em programação'
           fill_in 'Endereço', with: 'Alameda Santos, 1293'
           fill_in 'CNPJ', with: '11.222.333/0000-44'
           fill_in 'Site', with: 'www.campuscode.com.br'
-          fill_in 'Domínio de e-mail dos funcionários', with: ''
           attach_file 'Logo', Rails.root.join('spec', 'support', 'logo_cc.jpg')
           click_on 'Salvar'
         end
 
-        expect(page).to have_content('Não foi possível registrar a empresa')
         expect(page).to have_content('Nome já está em uso')
         expect(page).to have_content('CNPJ já está em uso')
         expect(page).not_to have_content('Painel do recrutador - Campus Code')

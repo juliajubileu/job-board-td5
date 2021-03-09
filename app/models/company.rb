@@ -3,10 +3,7 @@ class Company < ApplicationRecord
     has_many :recruiters
     has_many :jobs
     
-    validates :name, :address, :cnpj, :domain, :website, presence: true
-    validates :name, :cnpj, :domain, uniqueness: true
-
-    def find_by_domain(domain)
-        Company.find_by domain: domain
-    end
+    validates :domain, presence: true, uniqueness: true
+    validates :name, :address, :cnpj, :website, :about, presence: true, on: :update
+    validates :name, :cnpj, :website, uniqueness: true, on: :update
 end

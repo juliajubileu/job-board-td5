@@ -1,9 +1,5 @@
 <% if @company.errors.any? %>
-  <% if @company.persisted? %>
-    <p>Não foi possível editar as informações da empresa</p>
-  <% else %>
-    <p>Não foi possível registrar a empresa</p>
-  <% end %>
+  <p>Não foi possível salvar as informações da empresa</p>
 
   <p>Confira os erros abaixo:</p>
     <ul>
@@ -12,7 +8,7 @@
       <% end %>
     </ul>
     
-  <% end %>
+<% end %>
 
 <%= form_with model: @company do |form| %>
   <div class="field">
@@ -38,11 +34,6 @@
   <div class="field">
     <%= form.label :website, "Site" %>
     <%= form.text_field :website %>
-  </div>
-
-  <div class="field">
-    <%= form.label :domain, "Domínio de e-mail dos funcionários" %>
-    <%= form.text_field :domain %>
   </div>
 
   <div class="field">

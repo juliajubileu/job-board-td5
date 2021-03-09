@@ -134,8 +134,6 @@ ActiveRecord::Schema.define(version: 2021_03_05_124751) do
     t.index ["job_application_id"], name: "index_rejections_on_job_application_id"
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "denials", "offers"
   add_foreign_key "job_applications", "candidates"
   add_foreign_key "job_applications", "jobs"

@@ -1,7 +1,6 @@
 class CompaniesController < ApplicationController
     before_action :load_company, only: [:show, :edit, :update]
-    before_action :authenticate_recruiter!, only: [:edit, :update]
-    # TODO reorganizar o fluxo de cadastro de novo recrutador + empresa
+    before_action :authenticate_company_admin, only: [:edit, :update]
 
     def index
         @companies = Company.all
@@ -11,26 +10,13 @@ class CompaniesController < ApplicationController
 
     end
 
-    def new
-      @company = Company.new
-    end
-
-    def create
-      @company = Company.new(company_params)
-      if @company.save 
-        redirect_to new_recruiter_registration_path
-      else
-        render 'new'
-      end
-    end
-
     def edit 
 
     end
     
     def update
       if @company.update(company_params)
-       redirect_to @company
+       redirect_to recruiters_path
       else
         render 'edit'
       end
@@ -42,7 +28,12 @@ class CompaniesController < ApplicationController
       @company = Company.find(params[:id])
     end
 
+    def authenticate_company_admin
+      current_recruiter&.admin? && current_recruiter.company == @company
+    end
+
     def company_params
       params.require(:company).permit(:name, :address, :cnpj, :domain, :website, :logo, :about)
     end
+
 end 

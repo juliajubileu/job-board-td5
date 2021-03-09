@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :candidates, controllers: { registrations: 'candidates/registrations' }
   resources :candidates, only: %i[index]
   
-  resources :companies, except: [:destroy]
+  resources :companies, except: [:new, :create, :destroy]
   resources :jobs, except: [:destroy] do
     shallow do
       resources :job_applications, except: [:edit, :update] do

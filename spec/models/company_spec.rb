@@ -8,14 +8,15 @@ RSpec.describe Company, type: :model do
     end
       
     describe 'validations' do
-        it { should validate_presence_of(:name) }
-        it { should validate_presence_of(:address) }
-        it { should validate_presence_of(:cnpj) }
         it { should validate_presence_of(:domain) }
-        it { should validate_presence_of(:website) }
 
-        it { should validate_uniqueness_of(:name) }
-        it { should validate_uniqueness_of(:cnpj) }
-        it { should validate_uniqueness_of(:domain) }
+        it { should validate_presence_of(:name).on(:update) }
+        it { should validate_presence_of(:address).on(:update) }
+        it { should validate_presence_of(:cnpj).on(:update) }
+        it { should validate_presence_of(:website).on(:update) }
+
+        it { should validate_uniqueness_of(:name).on(:update) }
+        it { should validate_uniqueness_of(:cnpj).on(:update) }
+        it { should validate_uniqueness_of(:domain).on(:update) }
     end
 end

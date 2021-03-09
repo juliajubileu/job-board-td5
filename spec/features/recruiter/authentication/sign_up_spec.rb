@@ -69,7 +69,7 @@ feature 'Recruiter signs up' do
         expect(page).not_to have_link('Sair')
     end
 
-    xscenario 'and email must be valid' do
+    scenario 'and email must be valid' do
         company = Company.create!(name: 'Treina Dev', address: 'Alameda Santos, 1293',
         cnpj: '11.222.333/0000-44', website: 'www.treinadev.com.br', 
         domain: 'treinadev.com.br')
@@ -86,7 +86,6 @@ feature 'Recruiter signs up' do
         
         expect(page).to have_content('Não foi possível salvar recrutador')
         expect(page).to have_content('E-mail não é válido')
-        expect(current_path).not_to eq(new_company_path)
         expect(page).not_to have_link('Sair')
     end
 
@@ -109,11 +108,10 @@ feature 'Recruiter signs up' do
         expect(page).to have_content('Não foi possível salvar recrutador')
         expect(page).to have_content('já está em uso')
         expect(page).not_to have_content('rh@treinadev.com.br')
-        expect(current_path).not_to eq(new_company_path)
         expect(page).not_to have_link('Sair')
     end
 
-    xscenario 'and must be corporate email' do
+    scenario 'and must be corporate email' do
         visit root_url
         click_on 'Acesso recrutadores'
         click_on 'Registre-se'
@@ -126,7 +124,6 @@ feature 'Recruiter signs up' do
 
         expect(page).to have_content('Não foi possível salvar recrutador')
         expect(page).to have_content('E-mail deve ser corporativo')
-        expect(current_path).not_to eq(new_company_path)
         expect(page).not_to have_link('Sair')
     end
 end
