@@ -1,0 +1,28 @@
+require:
+  - rubocop-rails
+
+AllCops:
+ TargetRubyVersion: 2.7.2
+ Exclude:
+   - 'bin/**/*'
+   - 'vendor/**/*'
+   - 'db/migrate/*'
+   - 'db/schema.rb'
+   - 'config/**/*'
+   - 'script/**/*'
+   - 'spec/rails_helper.rb'
+
+Documentation:
+ Enabled: false
+
+Style/FrozenStringLiteralComment:
+ Enabled: false
+
+Metrics/BlockLength:
+ ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+
+Metrics/LineLength:
+  Max: 80
+
+AsciiComments:
+  Enabled: false
