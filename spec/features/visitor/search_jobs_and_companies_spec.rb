@@ -14,7 +14,9 @@ feature 'Visit home page' do
                                         domain: 'devlab.com.br')
         
         visit root_path
-        fill_in 'Busque um cargo ou empresa', with: 'Campus Code'
+        within('form') do
+          fill_in 'Busque um cargo ou empresa', with: 'Campus'
+        end
         click_on 'Pesquisar'
 
         expect(current_path).to eq search_path
@@ -41,7 +43,9 @@ feature 'Visit home page' do
                               expiration_date: '06/09/2021', spots_available: 4, company: company)
 
       visit root_path
-      fill_in 'Busque um cargo ou empresa', with: 'Desenvolvedor'
+      within('form') do
+        fill_in 'Busque um cargo ou empresa', with: 'Desenvolvedor'
+      end
       click_on 'Pesquisar'
 
       expect(current_path).to eq search_path

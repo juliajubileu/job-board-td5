@@ -17,7 +17,7 @@ feature 'Candidate signs up' do
                         expiration_date: '06/09/2021', spots_available: 4, company: company)
 
         visit root_url
-        click_on 'Ver vagas'
+        click_on 'Vagas'
         click_on job.title
         click_on 'Candidate-se para esta vaga'
 

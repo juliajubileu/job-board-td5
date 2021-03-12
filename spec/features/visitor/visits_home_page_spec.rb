@@ -4,8 +4,7 @@ feature 'Visitor visits home page' do
     scenario 'Successfully' do
         visit root_path
 
-        expect(page).to have_content('Tech Jobs')
-        expect(page).to have_content('Encontre vagas de trabalho em tecnologia!')
+        expect(page).to have_content('Encontre seu próximo trabalho em tecnologia!')
     end
 
     scenario 'and sees companies' do
@@ -17,7 +16,7 @@ feature 'Visitor visits home page' do
                         expiration_date: '06/09/2021', spots_available: 4, company: company)
 
       visit root_path
-      click_on 'Ver empresas'
+      click_on 'Empresas'
 
       expect(current_path).to eq(companies_path)
       expect(page).to have_link('Campus Code')
@@ -32,7 +31,7 @@ feature 'Visitor visits home page' do
                         expiration_date: '06/09/2021', spots_available: 4, company: company)
 
       visit root_path
-      click_on 'Ver vagas'
+      click_on 'Vagas'
 
      expect(current_path).to eq(jobs_path)
      expect(page).to have_link('Desenvolvedor(a) Web')

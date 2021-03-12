@@ -50,7 +50,7 @@ feature 'Recruiter checks incoming applications' do
 
         login_as recruiter, scope: :recruiter
         visit root_path
-        click_on 'Ver vagas'
+        click_on 'Vagas'
         click_on other_company_job.title
 
         expect(page).not_to have_link('Avaliar candidaturas')

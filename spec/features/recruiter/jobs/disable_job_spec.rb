@@ -66,7 +66,7 @@ feature 'Recruiter disables a job' do
                         expiration_date: '06/09/2021', spots_available: 4, company: company,
                         status: :enabled)
       visit root_path
-      click_on 'Ver vagas'
+      click_on 'Vagas'
 
       expect(page).to have_content('Desenvolvedor(a) Web')
       expect(page).not_to have_content('Desenvolvedor(a) Mobile')

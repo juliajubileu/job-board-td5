@@ -96,7 +96,7 @@ feature 'Recruiter edits company job openings' do
                          company: other_company)
 
         visit root_url
-        click_on 'Ver vagas'
+        click_on 'Vagas'
         click_on 'Tech Lead'
 
         expect(page).not_to have_link('Editar vaga')

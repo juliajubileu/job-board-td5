@@ -13,7 +13,7 @@ feature 'Candidate applies for job' do
       
       login_as candidate, scope: :candidate
       visit root_url
-      click_on 'Ver vagas'
+      click_on 'Vagas'
       click_on job.title
 
       expect(page).to have_link('Candidate-se para esta vaga')
@@ -31,7 +31,7 @@ feature 'Candidate applies for job' do
 
       login_as candidate, scope: :candidate
       visit root_url
-      click_on 'Ver vagas'
+      click_on 'Vagas'
       click_on job.title
       click_on 'Candidate-se para esta vaga'
       click_on 'Confirmar candidatura'
@@ -54,7 +54,7 @@ feature 'Candidate applies for job' do
 
       login_as candidate, scope: :candidate
       visit root_url
-      click_on 'Ver vagas'
+      click_on 'Vagas'
       click_on job.title
 
       expect(current_path).to eq(job_path(job))

@@ -1,40 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <%= link_to 'TechJobs', root_path, :class => "navbar-brand" %>
 
-  <%= link_to 'TechJobs', root_path, :class => "navbar-brand" %>
+    <div class="d-flex justify-content-end">
+      <ul class="navbar-nav">
+        <% if recruiter_signed_in? %>
 
-  <div class="collapse navbar-collapse d-inline-flex justify-content-end">
-    <ul class="navbar-nav mr-auto">
-      <% if recruiter_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to current_recruiter.email, recruiters_path, :class => "nav-link" %>
+          </li>
 
-        <li class="nav-item active">
-          <%= link_to current_recruiter.email, recruiters_path, :class => "nav-link" %>
-        </li>
+          <li class="nav-item active">
+            <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete, :class => "nav-link" %>
+          </li>
 
-        <li class="nav-item active">
-          <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete, :class => "nav-link" %>
-        </li>
+        <% elsif candidate_signed_in? %>
 
-      <% elsif candidate_signed_in? %>
+          <li class="nav-item">
+            <%= link_to current_candidate.email, candidates_path, :class => "nav-link" %>
+          </li>
 
-        <li class="nav-item">
-          <%= link_to current_candidate.email, candidates_path, :class => "nav-link" %>
-        </li>
+          <li class="nav-item active">
+            <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete, :class => "nav-link" %>
+          </li>
 
-        <li class="nav-item active">
-          <%= link_to 'Sair', destroy_recruiter_session_path, method: :delete, :class => "nav-link" %>
-        </li>
+        <% else %>
 
-      <% else %>
+          <li class="nav-item">
+            <%= link_to 'Acesso candidatos', new_candidate_session_path, :class => "nav-link active" %>
+          </li>
 
-        <li class="nav-item">
-          <%= link_to 'Acesso candidatos', new_candidate_session_path, :class => "nav-link active" %>
-        </li>
+          <li class="nav-item">
+            <%= link_to 'Acesso recrutadores', new_recruiter_session_path, :class => "nav-link active" %>
+          </li>
 
-        <li class="nav-item">
-          <%= link_to 'Acesso recrutadores', new_recruiter_session_path, :class => "nav-link active" %>
-        </li>
-
-      <% end %>
-    </ul>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
