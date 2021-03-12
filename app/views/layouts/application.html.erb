@@ -18,8 +18,12 @@
     </header>
 
     <main class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <p class="alert alert-primary mt-3" role="alert"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger mt-3" role="alert"><%= alert %></p>
+      <% end %>
       
       <%= yield %>
     </main>
