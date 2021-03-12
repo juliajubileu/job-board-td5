@@ -1,21 +1,27 @@
-<h1>Vagas</h1>
+<h1 class="display-4 text-center mt-3">Vagas</h1>
 
-<% if @jobs.empty? %>
-  <p>Nenhuma vaga encontrada</p>
-<% else %>
-  <% @jobs.each do |job| %>
-    <% unless job.disabled? %>
-      <dl>
-        <dt><%= Job.human_attribute_name(:title) %></dt>
-        <dd><%= link_to job.title, job_path(job) %></dd>
+<div class="container mt-5">
+  <% if @jobs.empty? %>
+    <p>Nenhuma vaga encontrada</p>
+  <% else %>
+    <% @jobs.each do |job| %>
+      <% unless job.disabled? %>
+        <dl>
+          <dt><%= Job.human_attribute_name(:title) %></dt>
+          <dd>
+            <%= link_to job.title, job_path(job) %>
+            @ <%= link_to job.company.name, company_path(job.company) %>
+          </dd>
 
-        <dt><%= Job.human_attribute_name(:description) %></dt>
-        <dd><%= job.description %></dd>
+          <dt><%= Job.human_attribute_name(:description) %></dt>
+          <dd><%= job.description %></dd>
 
-        <dt><%= Job.human_attribute_name(:level) %></dt>
-        <dd><%= job.level %></dd>
-      </dl>
-      <hr>
+          <dt><%= Job.human_attribute_name(:level) %></dt>
+          <dd><%= job.level %></dd>
+        </dl>
+        <hr>
+      <% end %>
     <% end %>
-  <% end %>
+    <%= link_to 'Voltar', root_path %>
+  </div>
 <% end %>

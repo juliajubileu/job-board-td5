@@ -28,7 +28,7 @@
   <% end %>
 <% end %>
 
-<% if current_recruiter.company == @company %>
+<% if current_recruiter&.company == @company %>
   <%= link_to 'Publicar vagas', new_job_path %>
 <% end %>
 

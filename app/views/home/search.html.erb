@@ -1,27 +1,40 @@
-<h1> Resultados da busca: </h1>
+<h1 class="display-4 text-center mt-3">Resultados da busca:</h1>
 
-<h2>Empresas:</h2>
-<% if @companies.empty? %>
-  <p>Nenhuma empresa encontrada</p>
-<% else %>
-  <% @companies.each do |company| %>
-    <p><%= link_to company.name, company_path(company) %> - <%= company.website %></p>
-  <% end %>
-<% end %>
-
-<h2>Vagas:</h2>
-<% if @jobs.empty? %>
-  <p>Nenhuma vaga encontrada</p>
-<% else %>
-  <dl>
-    <% @jobs.each do |job| %>
-      <% unless job.disabled? %>
-          <dt><%= job.company.name %>: <%= link_to job.title, job_path(job) %></dt>
-          <dd>Nível: <%= job.level %></dd>
-          <hr>
+<div class="container">
+  <div class="container mt-5">
+    <% if @companies.empty? %>
+      <p>Nenhuma empresa encontrada com os termos buscados</p>
+    <% else %>
+      <h2>Empresas</h2>
+      <% @companies.each do |company| %>
+        <p><%= link_to company.name, company_path(company) %> - <%= company.website %></p>
       <% end %>
     <% end %>
-  </dl>
-<% end %>
+  </div>
 
-<%= link_to 'Voltar', root_path %>
+  <div class="container mt-5">
+    <% if @jobs.empty? %>
+      <p>Nenhuma vaga encontrada com os termos buscados</p>
+    <% else %>
+      <h2>Vagas</h2>
+      <% @jobs.each do |job| %>
+        <% unless job.disabled? %>
+          <dl>
+            <dt><%= Job.human_attribute_name(:title) %></dt>
+            <dd>
+              <%= link_to job.title, job_path(job) %>
+              @ <%= link_to job.company.name, company_path(job.company) %>
+            </dd>
+
+            <dt><%= Job.human_attribute_name(:description) %></dt>
+            <dd><%= job.description %></dd>
+
+            <dt><%= Job.human_attribute_name(:level) %></dt>
+            <dd><%= job.level %></dd>
+          </dl>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to 'Voltar', root_path %>
+</div>
