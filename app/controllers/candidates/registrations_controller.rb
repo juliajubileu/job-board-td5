@@ -10,14 +10,14 @@ class Candidates::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
-
-  # GET /resource/edit
-  def edit
+  def create
     super
   end
+
+  # GET /resource/edit
+  # def edit
+  #  super
+  # end
 
   # PUT /resource
   def update
@@ -42,12 +42,15 @@ class Candidates::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-   devise_parameter_sanitizer.permit(:sign_up, keys: [:full_name, :social_name, :cpf, :phone, :bio])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[full_name social_name
+                                                         cpf phone bio])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-   devise_parameter_sanitizer.permit(:account_update, keys: [:full_name, :social_name, :cpf, :phone, :bio])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[full_name
+                                                                social_name cpf
+                                                                phone bio])
   end
 
   # The path used after sign up.

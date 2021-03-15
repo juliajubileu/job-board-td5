@@ -1,13 +1,11 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :disable, :enable]
-  before_action :authenticate_recruiter!, except: [:index, :show]
-
+  before_action :set_job, only: %i[show edit update disable enable]
+  before_action :authenticate_recruiter!, except: %i[index show]
   def index
     @jobs = Job.all
   end
 
   def show
-
   end
 
   def new
@@ -27,10 +25,9 @@ class JobsController < ApplicationController
     end
   end
 
-  def edit 
-
+  def edit
   end
-    
+
   def update
     if @job.update(job_params)
       flash[:notice] = 'Vaga editada com sucesso'
@@ -53,8 +50,8 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :remuneration, 
-                                :level, :requirements, :expiration_date, 
+    params.require(:job).permit(:title, :description, :remuneration,
+                                :level, :requirements, :expiration_date,
                                 :spots_available)
   end
 

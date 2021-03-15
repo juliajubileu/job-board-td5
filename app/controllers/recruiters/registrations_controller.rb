@@ -31,13 +31,14 @@ class Recruiters::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute, :company_id])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[attribute
+                                                                company_id])
   end
 
   def after_sign_up_path_for(resource)
     if resource.admin?
       edit_company_path(resource.company_id)
-    else 
+    else
       recruiters_path
     end
   end

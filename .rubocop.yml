@@ -2,8 +2,12 @@ require:
   - rubocop-rails
 
 AllCops:
+ NewCops: enable
+ SuggestExtensions: false
  TargetRubyVersion: 2.7.2
  Exclude:
+   - 'app/controllers/candidates/*'
+   - 'app/controllers/recruiters/*'
    - 'bin/**/*'
    - 'vendor/**/*'
    - 'db/migrate/*'
@@ -12,17 +16,23 @@ AllCops:
    - 'script/**/*'
    - 'spec/rails_helper.rb'
 
-Documentation:
- Enabled: false
+Style/Documentation:
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
- Enabled: false
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
 
 Metrics/BlockLength:
- ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+  IgnoredMethods: ['describe', 'context', 'feature', 'scenario', 'let']
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 80
-
-AsciiComments:
-  Enabled: false

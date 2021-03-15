@@ -1,10 +1,8 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_job, only: [:index, :new, :create]
-  before_action :authenticate_candidate!, except: [:index]
-  before_action :authenticate_recruiter!, only: [:index]
-
+  before_action :set_job, only: %i[index new create]
+  before_action :authenticate_candidate!, except: %i[index]
+  before_action :authenticate_recruiter!, only: %i[index]
   def index
-
   end
 
   def show

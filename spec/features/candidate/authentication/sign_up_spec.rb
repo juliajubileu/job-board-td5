@@ -12,16 +12,16 @@ feature 'Candidate signs up' do
       company = Company.create!(name: 'Campus Code', address: 'Alameda Santos, 1293',
                                 cnpj: '11.222.333/0000-44', website: 'campuscode.com.br',
                                 domain: 'campuscode.com.br')
-        job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
+      job = Job.create!(title: 'Desenvolvedor(a) Web', description: 'Desenvolvimento de aplicações web', 
                         remuneration: 2500, level: 'Júnior', requirements: 'Ruby on Rails',
                         expiration_date: '06/09/2021', spots_available: 4, company: company)
 
-        visit root_url
-        click_on 'Vagas'
-        click_on job.title
-        click_on 'Candidate-se para esta vaga'
+      visit root_url
+      click_on 'Vagas'
+      click_on job.title
+      click_on 'Candidate-se para esta vaga'
 
-        expect(current_path).to eq(new_candidate_session_path)
+      expect(current_path).to eq(new_candidate_session_path)
     end
 
     scenario 'successfully' do        

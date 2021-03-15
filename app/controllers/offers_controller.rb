@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
-  before_action :set_offer, :authenticate_candidate!, only: [:show, :accept]
-  before_action :set_job_application, :authenticate_recruiter!, only: [:new, :create]
-
+  before_action :set_offer, :authenticate_candidate!, only: %i[show accept]
+  before_action :set_job_application, :authenticate_recruiter!, only: %i[new
+                                                                         create]
   def show
     @job_application = @offer.job_application
     define_job_attribute
@@ -16,7 +16,6 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     define_job_attribute
     @offer.job_application = @job_application
-
     if @offer.save
       flash[:notice] = 'Oferta enviada'
       @job_application.approved!
