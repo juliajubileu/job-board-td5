@@ -2,6 +2,26 @@
 pt-BR:
   activerecord:
     errors:
+      models:
+        job:
+          attributes:
+            remuneration:
+              minimum_wage: 'deve ser maior que salário mínimo (R$1.100,00)'
+            expiration_date:
+              past_expiration: 'deve ser futura'
+            spots_available:
+              negative_spots: 'deve ser número positivo'
+        offer:
+          attributes:
+            salary:
+              minimum_wage: 'deve ser maior que salário mínimo (R$1.100,00)'
+            starting_date:
+              past_date: 'deve ser futura'
+        recruiter:
+          attributes:
+            email:
+              personal_email: 'deve ser corporativo.'
+
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:

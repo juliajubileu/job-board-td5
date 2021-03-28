@@ -1,40 +1,38 @@
 class Job < ApplicationRecord
   belongs_to :company
-  has_many :job_applications
-  has_many :candidates, through: :job_applications 
+  has_many :job_applications, dependent: :destroy
+  has_many :candidates, through: :job_applications
 
   validates :title, :description, :remuneration, :level, :requirements,
             :expiration_date, :spots_available, presence: true
-  validate :remuneration_cannot_be_less_than_minimum_wage, 
-           :expiration_date_cannot_be_in_the_past, 
+  validate :remuneration_cannot_be_less_than_minimum_wage,
+           :expiration_date_cannot_be_in_the_past,
            :spots_cannot_be_negative
 
   enum status: { enabled: 0, disabled: 5 }
 
   def remuneration_cannot_be_less_than_minimum_wage
-    if
-    remuneration.present? && remuneration < 1100
-    errors.add(:remuneration, 'deve ser maior que salário mínimo (R$1.100,00)')
+    if remuneration.present? && remuneration < 1100
+      errors.add(:remuneration,
+                 :minimum_wage)
     end
   end
 
   def expiration_date_cannot_be_in_the_past
-    if
-    expiration_date.present? && expiration_date < Date.today
-    errors.add(:expiration_date, 'deve ser futura')
+    if expiration_date.present? && expiration_date < Time.zone.today
+      errors.add(:expiration_date,
+                 :past_expiration)
     end
   end
 
   def spots_cannot_be_negative
-    if
-    spots_available.present? && spots_available < 1
-    errors.add(:spots_available, 'deve ser número positivo')
+    if spots_available.present? && spots_available < 1
+      errors.add(:spots_available,
+                 :negative_spots)
     end
   end
 
   def spots_unavailable
-    if self.applications.offers.accepted.count >= self.spots_available
-      self.status = disabled
-    end
+    disabled if applications.offers.accepted.count >= spots_available
   end
 end

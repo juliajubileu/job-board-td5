@@ -22,6 +22,7 @@
           null,
           null,
           null,
+          null,
           1,
           38,
           38,
@@ -32,8 +33,6 @@
           null,
           null,
           38,
-          null,
-          null,
           null,
           null
         ]
@@ -74,6 +73,7 @@
           null,
           1,
           1,
+          null,
           1,
           null
         ]
@@ -99,50 +99,6 @@
           null
         ]
       },
-      "/Users/juliajubileu/Documents/Projetos/TreinaDev/job-board/app/models/job.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          54,
-          2,
-          null,
-          null,
-          null,
-          1,
-          null,
-          54,
-          2,
-          null,
-          null,
-          null,
-          1,
-          null,
-          54,
-          2,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
       "/Users/juliajubileu/Documents/Projetos/TreinaDev/job-board/app/models/offer.rb": {
         "lines": [
           1,
@@ -153,17 +109,14 @@
           null,
           1,
           null,
-          1,
           null,
           1,
           null,
+          1,
           12,
-          1,
-          null,
           null,
           null,
           1,
-          null,
           12,
           1,
           null,
@@ -277,6 +230,48 @@
           null,
           null,
           null,
+          null,
+          null
+        ]
+      },
+      "/Users/juliajubileu/Documents/Projetos/TreinaDev/job-board/app/models/job.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          45,
+          2,
+          null,
+          null,
+          null,
+          null,
+          1,
+          45,
+          2,
+          null,
+          null,
+          null,
+          null,
+          1,
+          45,
+          2,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
           null,
           null
         ]
@@ -414,7 +409,6 @@
           4,
           4,
           4,
-          1,
           1,
           1,
           1,
@@ -619,8 +613,6 @@
       "/Users/juliajubileu/Documents/Projetos/TreinaDev/job-board/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
-          0,
-          0,
           0
         ],
         "branches": {
@@ -628,8 +620,6 @@
       },
       "/Users/juliajubileu/Documents/Projetos/TreinaDev/job-board/app/channels/application_cable/connection.rb": {
         "lines": [
-          0,
-          0,
           0,
           0
         ],
@@ -660,6 +650,6 @@
         }
       }
     },
-    "timestamp": 1615845093
+    "timestamp": 1616898344
   }
 }

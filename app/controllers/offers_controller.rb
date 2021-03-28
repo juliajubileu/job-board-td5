@@ -17,10 +17,9 @@ class OffersController < ApplicationController
     define_job_attribute
     @offer.job_application = @job_application
     if @offer.save
-      flash[:notice] = 'Oferta enviada'
       @job_application.approved!
       @offer.pending!
-      redirect_to job_job_applications_path(@job)
+      redirect_to job_job_applications_path(@job), notice: t('.success')
     else
       render :new
     end

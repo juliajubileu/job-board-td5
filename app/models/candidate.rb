@@ -1,5 +1,5 @@
 class Candidate < ApplicationRecord
-  has_many :job_applications
+  has_many :job_applications, dependent: :destroy
   has_many :jobs, through: :job_applications
 
   devise :database_authenticatable, :registerable,

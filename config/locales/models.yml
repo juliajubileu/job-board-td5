@@ -55,4 +55,6 @@ pt-BR:
         starting_date: 'Data de início'
       denial:
         motive: 'Motivo'
-        
+      offers:
+        create:
+          success: 'Oferta enviada'

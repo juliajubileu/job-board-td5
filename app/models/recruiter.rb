@@ -13,7 +13,8 @@ class Recruiter < ApplicationRecord
     recruiter_domain = email.split('@').last
 
     if PERSONAL_DOMAINS.include?(recruiter_domain)
-      errors.add(:email, 'deve ser corporativo.')
+      errors.add(:email,
+                 :personal_email)
     end
   end
 
@@ -21,7 +22,7 @@ class Recruiter < ApplicationRecord
     domain = email.split('@').last
     company = Company.find_by(domain: domain)
 
-    if company.nil? 
+    if company.nil?
       self.role = :admin
       company = Company.create(domain: domain)
     end
@@ -29,5 +30,3 @@ class Recruiter < ApplicationRecord
     self.company = company
   end
 end
-
-
