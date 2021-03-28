@@ -3,11 +3,7 @@ require 'rails_helper'
 feature 'Candidate edits profile' do
   scenario 'successfully' do
     # Arrange
-    candidate = Candidate.create!(full_name: 'Maria Oliveira',
-                                  cpf: '12312312312',
-                                  email: 'maria@email.com.br',
-                                  password: '234567',
-                                  bio: 'Candidata')
+    candidate = create(:candidate)
 
     # Act
     login_as candidate, scope: :candidate
@@ -33,10 +29,7 @@ feature 'Candidate edits profile' do
 
   scenario 'and current password can not be blank' do
     # Arrange
-    candidate = Candidate.create!(full_name: 'Maria Oliveira',
-                                  cpf: '12312312312',
-                                  email: 'maria@email.com.br',
-                                  password: '234567', bio: 'Candidata')
+    candidate = create(:candidate)
 
     # Act
     login_as candidate, scope: :candidate
@@ -59,10 +52,7 @@ feature 'Candidate edits profile' do
 
   scenario 'and new password must match confirmation' do
     # Arrange
-    candidate = Candidate.create!(full_name: 'Maria Oliveira',
-                                  cpf: '12312312312',
-                                  email: 'maria@email.com.br',
-                                  password: '234567', bio: 'Candidata')
+    candidate = create(:candidate)
 
     # Act
     login_as candidate, scope: :candidate

@@ -18,6 +18,7 @@ gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 4.0.2'
   gem 'rubocop', '~> 1.11', require: false
   gem 'rubocop-rails', require: false
