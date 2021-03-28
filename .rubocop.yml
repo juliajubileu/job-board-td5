@@ -12,11 +12,15 @@ AllCops:
    - 'vendor/**/*'
    - 'db/migrate/*'
    - 'db/schema.rb'
+   - 'node_modules/*'
    - 'config/**/*'
    - 'script/**/*'
    - 'spec/rails_helper.rb'
 
 Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
