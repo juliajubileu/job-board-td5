@@ -12,10 +12,10 @@ AllCops:
    - 'vendor/**/*'
    - 'db/migrate/*'
    - 'db/schema.rb'
-   - 'node_modules/*'
    - 'config/**/*'
    - 'script/**/*'
    - 'spec/rails_helper.rb'
+   - 'node_modules/node-sass/src/libsass/**/*'
 
 Style/Documentation:
   Enabled: false
