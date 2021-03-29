@@ -8,8 +8,9 @@ class Job < ApplicationRecord
   validate :remuneration_cannot_be_less_than_minimum_wage,
            :expiration_date_cannot_be_in_the_past,
            :spots_cannot_be_negative
+  after_find :spots_unavailable
 
-  enum status: { enabled: 0, disabled: 5 }
+  enum status: { enabled: 0, disabled: 1 }, _default: 'enabled'
 
   def remuneration_cannot_be_less_than_minimum_wage
     if remuneration.present? && remuneration < 1100
@@ -33,6 +34,6 @@ class Job < ApplicationRecord
   end
 
   def spots_unavailable
-    disabled if applications.offers.accepted.count >= spots_available
+    # disabled! if job_applications.offer.accepted.count >= spots_available
   end
 end

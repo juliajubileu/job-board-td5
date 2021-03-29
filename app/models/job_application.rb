@@ -4,5 +4,5 @@ class JobApplication < ApplicationRecord
   has_one :rejection, dependent: :destroy
   has_one :offer, dependent: :destroy
 
-  enum status: { pending: 0, approved: 5, rejected: 10 }
+  enum status: { pending: 0, approved: 5, rejected: 10, hired: 15 }
 end

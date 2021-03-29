@@ -65,32 +65,4 @@ feature 'Recruiter disables a job' do
     expect(page).to have_content('Desenvolvedor(a) Web')
     expect(page).not_to have_content('Desenvolvedor(a) Mobile')
   end
-
-  xscenario 'and job is automatically disabled after all spots filled' do
-    company = create(:company)
-    job = create(:job, company: company, spots_available: 2, status: :enabled)
-    first_candidate = create(:candidate)
-    first_application = JobApplication.create!(job: job,
-                                               candidate: first_candidate,
-                                               status: :approved)
-    second_candidate = create(:candidate, full_name: 'Mariana Ferreira',
-                                          cpf: '12312314562',
-                                          bio: 'candidata 2',
-                                          email: 'mariana@email.com.br')
-    second_application = JobApplication.create!(job: job,
-                                                candidate: second_candidate,
-                                                status: :approved)
-    create(:offer, job_application: first_application, status: :accepted)
-    create(:offer, job_application: second_application, status: :accepted)
-
-    # Act
-    visit root_path
-    click_on 'Ver vagas'
-    job.reload
-
-    # Assert
-    expect(job).to be_disabled
-    expect(page).to have_content('Desenvolvedor(a) Web')
-    expect(page).not_to have_content('Desenvolvedor(a) Mobile')
-  end
 end
