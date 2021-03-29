@@ -2,6 +2,7 @@
 
 <%= link_to 'Perfil da empresa', company_path(@company) %>
 <%= link_to 'Publicar vagas', new_job_path %>
+<%= link_to 'Atualizar conta', edit_recruiter_registration_path %>
 
 <h2>Vagas ativas: <%= @company.jobs.enabled.count %></h2>
   <% @company.jobs.each do |job| %>
