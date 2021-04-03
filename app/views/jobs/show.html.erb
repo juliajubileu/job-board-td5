@@ -31,7 +31,8 @@
 
 <% unless recruiter_signed_in? %>
   <% if @job.candidates.include?(current_candidate) %>
-    <%= link_to "Acompanhar candidatura" %>
+    <% application = @job.job_applications.where(candidate: current_candidate).first %>
+    <%= link_to "Acompanhar candidatura", job_application_path(application) %>
   <% else %>
     <%= link_to "Candidate-se para esta vaga", new_job_job_application_path(@job) %>
   <% end %>

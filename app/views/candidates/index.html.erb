@@ -16,7 +16,7 @@
 <% @job_applications.each do |application| %>
   <% if application.approved? && application.offer.pending? %>
     <p><%= application.job.title %> - <%= application.job.company.name %> 
-    <%= link_to 'Avaliar oferta', offer_path(application) %></p>
+    <%= link_to 'Avaliar oferta', offer_path(application.offer) %></p>
     <hr>
   <% end %>
 <% end %>

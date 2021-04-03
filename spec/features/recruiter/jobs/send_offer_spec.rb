@@ -22,7 +22,7 @@ feature 'Recruiter sends offer to candidate' do
       fill_in 'Mensagem de aprovação',
               with: 'Você foi aprovada no processo seletivo!'
       fill_in 'Oferta de remuneração', with: 2500
-      fill_in 'Data de início', with: '01/04/2021'
+      fill_in 'Data de início', with: '01/04/2022'
       click_on 'Enviar proposta'
     end
     application.reload
