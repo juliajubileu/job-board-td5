@@ -94,4 +94,12 @@ Para acessar páginas que requerem autenticação, utilize as contas abaixo:
 
 
 ## Status
-Projeto em desenvolvimento. Mais detalhes sobre o processo [aqui](https://www.notion.so/Projeto-2-Balc-o-de-Empregos-4dbe791ce3224d80bb1bf56ca07e23a0)! :blush:	
+Projeto em desenvolvimento. Próximos passos: 
+
+- [ ] Implementar método que desativa a vaga quando todas as contratações são realizadas
+- [ ] Features bônus: banco de currículos, configuração de categorias das vagas e modo administrativo
+- [ ] Finalizar layout em todas as páginas
+- [ ] Deploy da aplicação no Heroku
+
+
+Mais detalhes sobre o processo [aqui](https://www.notion.so/Projeto-2-Balc-o-de-Empregos-4dbe791ce3224d80bb1bf56ca07e23a0)! :blush:	
