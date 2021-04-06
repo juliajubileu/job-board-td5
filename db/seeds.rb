@@ -29,12 +29,12 @@ dev_works = Company.create!(name: 'Dev Works', address: 'Rua Dev, 453',
 Job.create!(title: 'Desenvolvedor(a) Web',
             description: 'Desenvolvimento de aplicações web',
             remuneration: 3000, level: 'Júnior', requirements: 'Ruby on Rails',
-            expiration_date: '06/09/2021', spots_available: 2,
+            expiration_date: '06/09/2025', spots_available: 2,
             company: tech_lab, status: :enabled)
 mobile_dev = Job.create!(title: 'Desenvolvedor(a) Mobile',
                          description: 'Desenvolvimento de aplicações mobile',
                          remuneration: 2500, level: 'Júnior',
-                         requirements: 'Flutter', expiration_date: '03/04/2021',
+                         requirements: 'Flutter', expiration_date: '03/04/2029',
                          spots_available: 2, company: tech_lab,
                          status: :enabled)
 software_engineer = Job.create!(title: 'Engenheiro(a) de Software',
@@ -47,7 +47,7 @@ software_engineer = Job.create!(title: 'Engenheiro(a) de Software',
                                 conhecimento em infraestrutura e automação;
                                 Habilidade para escrever código otimizado de
                                 acordo com boas práticas de desenvolvimento.',
-                                expiration_date: '20/07/2021',
+                                expiration_date: '20/07/2027',
                                 spots_available: 3, company: goodbank,
                                 status: :enabled)
 programmer = Job.create!(title: 'Programador(a) Fullstack',
@@ -62,7 +62,7 @@ programmer = Job.create!(title: 'Programador(a) Fullstack',
                          desenvolvimento de sistemas; Ter Vivência como
                          programador em algumas destas linguagens( PHP / .Net,
                          C#, entre outras, banco de dados SQL Server).',
-                         expiration_date: '15/06/2021', spots_available: 2,
+                         expiration_date: '15/06/2026', spots_available: 2,
                          company: dev_works, status: :enabled)
 ror_developer = Job.create!(title: 'Desenvolvedor(a) Ruby on Rails',
                             description: 'Você trabalhará com nossos clientes
@@ -71,7 +71,7 @@ ror_developer = Job.create!(title: 'Desenvolvedor(a) Ruby on Rails',
                             requirements: 'Os candidatos bem qualificados terão
                             um excelente conhecimento de HTML, CSS, JavaScript,
                             refatoração, padrões de design e outras práticas de
-                            programação.', expiration_date: '06/09/2021',
+                            programação.', expiration_date: '06/09/2030',
                             spots_available: 2, company: ruby_corp,
                             status: :enabled)
 Job.create!(title: 'Designer de Produto', description: 'Você irá colaborar com
@@ -82,7 +82,7 @@ Job.create!(title: 'Designer de Produto', description: 'Você irá colaborar com
             usuário e sabe qual ferramenta usar, dependendo do escopo e da fase
             do projeto. Você procura novas ferramentas, experimenta-as e avalia
             se a equipe mais ampla deve usá-las.',
-            expiration_date: '06/05/2021', spots_available: 1,
+            expiration_date: '06/05/2031', spots_available: 1,
             company: thought_dock, status: :enabled)
 
 # RECRUTADORES
@@ -116,5 +116,5 @@ JobApplication.create!(job: software_engineer, candidate: carol,
 
 # OFERTAS
 
-Offer.create!(message: 'Parabéns', salary: 4000, starting_date: '05/04/2021',
+Offer.create!(message: 'Parabéns', salary: 4000, starting_date: '05/04/2022',
               job_application: ana_apply, status: :pending)

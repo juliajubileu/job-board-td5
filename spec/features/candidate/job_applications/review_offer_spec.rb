@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Candidate reviews offers' do
+  before do
+    allow(Time.zone).to receive(:today).and_return Time.new(2021,2,3)
+  end
+
   scenario 'from home page' do
     # Arrange
     company = create(:company)

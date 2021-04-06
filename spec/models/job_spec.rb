@@ -1,10 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Job, type: :model do
-  describe 'associations' do
-  end
-
-  describe 'validations' do
+  before do
+    allow(Time.zone).to receive(:today).and_return Time.new(2021,2,3)
   end
 
   describe 'status' do
@@ -17,7 +15,7 @@ RSpec.describe Job, type: :model do
       expect(job).to be_enabled
     end
 
-    xit 'automatically disabled when all spots are filled' do
+    it 'automatically disabled when all spots are filled' do
       # Arrange
       company = create(:company)
       job = create(:job, company: company, spots_available: 1, status: :enabled)

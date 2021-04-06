@@ -15,7 +15,7 @@ feature 'Visit home page' do
       # Act
       visit root_path
       within('form') do
-        fill_in 'Busque um cargo ou empresa', with: 'Campus'
+        fill_in 'Busque um cargo ou empresa', with: 'campus'
       end
       click_on 'Pesquisar'
 

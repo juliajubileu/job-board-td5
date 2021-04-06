@@ -34,6 +34,7 @@ class Job < ApplicationRecord
   end
 
   def spots_unavailable
-    # disabled! if job_applications.offer.accepted.count >= spots_available
+    hires = job_applications.filter {|application| application&.offer&.accepted?}
+    disabled! if hires.size >= spots_available
   end
 end

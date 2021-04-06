@@ -3,8 +3,9 @@ class HomeController < ApplicationController
   end
 
   def search
-    @companies = Company.where('name like ?', "%#{params[:q]}%")
-    @jobs = Job.where('title like ? OR level like ?', "%#{params[:q]}%",
-                      "%#{params[:q]}%")
+    query = params[:q]
+    @companies = Company.where('name ilike ?', "%#{query}%")
+    @jobs = Job.where('title ilike ? OR level ilike ?', "%#{query}%",
+                      "%#{query}%")
   end
 end
