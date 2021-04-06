@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Job, type: :model do
   before do
-    allow(Time.zone).to receive(:today).and_return Time.new(2021,2,3)
+    allow(Time.zone).to receive(:today).and_return Time.new(2021, 2, 3)
   end
 
   describe 'status' do

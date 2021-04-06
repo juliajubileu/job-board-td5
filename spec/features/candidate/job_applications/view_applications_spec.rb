@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Candidate views applications' do
   before do
-    allow(Time.zone).to receive(:today).and_return Time.new(2021,2,3)
+    allow(Time.zone).to receive(:today).and_return Time.new(2021, 2, 3)
   end
-  
+
   scenario 'must be signed in' do
     # Act
     visit root_path
