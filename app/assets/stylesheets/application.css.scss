@@ -2,7 +2,8 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+
+@import "~bootstrap/scss/bootstrap";
 
  body {
      font-family: 'Anonymous Pro', monospace;
