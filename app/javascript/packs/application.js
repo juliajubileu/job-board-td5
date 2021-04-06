@@ -7,10 +7,15 @@
 //= require popper
 //= require bootstrap-sprockets
 
+require("jquery");
+require("bootstrap");
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "../../assets/stylesheets/application.css.scss";
+
 
 Rails.start()
 Turbolinks.start()
